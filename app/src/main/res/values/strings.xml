@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">KindergartenApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="LoginBtnLabel">Login</string>
+    <string name="tab_posts">Posts</string>
+    <string name="tab_teachers">Teachers</string>
+    <string name="tab_parents">Parents</string>
+    <string name="tab_chidlren">Children</string>
+    <string name="tab_children">Children</string>
+    <string name="GroupTitle">Group</string>
+</resources>
