@@ -10,4 +10,5 @@
     <string name="tab_chidlren">Children</string>
     <string name="tab_children">Children</string>
     <string name="GroupTitle">Group</string>
+    <string name="example_text">Something really important post. Lorem ipsum dolor sit amet, sa odio mauris justo. Luctus arcu, urna praesent at id quisque ac.</string>
 </resources>

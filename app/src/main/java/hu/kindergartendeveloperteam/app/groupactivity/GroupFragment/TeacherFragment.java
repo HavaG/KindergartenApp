@@ -14,32 +14,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.Test_classes.Person_test;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
+import io.swagger.client.model.User;
 
 public class TeacherFragment extends Fragment {
 
     View v;
     private RecyclerView myRecycleView;
-    private List<Person_test> Teachers;
+    private List<User> Teachers;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Teachers = new ArrayList<>();
-
-        //Groupban levő gyerek lista feltöltése
-        Teachers.add(new Person_test("Mercz"));
-        Teachers.add(new Person_test("Norbi"));
-        Teachers.add(new Person_test("Dobrosi"));
-        Teachers.add(new Person_test("Mercz"));
-        Teachers.add(new Person_test("Norbi"));
-        Teachers.add(new Person_test("Dobrosi"));
-        Teachers.add(new Person_test("Mercz"));
-        Teachers.add(new Person_test("Norbi"));
-        Teachers.add(new Person_test("Dobrosi"));
-        Teachers.add(new Person_test("Mercz"));
-        Teachers.add(new Person_test("Norbi"));
-        Teachers.add(new Person_test("Dobrosi"));
 
     }
 
@@ -50,7 +37,7 @@ public class TeacherFragment extends Fragment {
 
         v = inflater.inflate(R.layout.teachers_fragment, container, false);
         myRecycleView = (RecyclerView) v.findViewById(R.id.teachersRecycleView);
-        RecyclerViewAdapter recycleAdapter = new RecyclerViewAdapter(getContext(),Teachers);
+        UserRecyclerViewAdapter recycleAdapter = new UserRecyclerViewAdapter(getContext(),Teachers);
         myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecycleView.setAdapter(recycleAdapter);
         return v;

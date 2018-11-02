@@ -14,12 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.Test_classes.Person_test;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
+import io.swagger.client.model.User;
 
 public class ParentsFragment extends Fragment {
 
     View v;
     private RecyclerView myRecycleView;
-    private List<Person_test> Parents;
+    private List<User> Parents;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,22 +29,6 @@ public class ParentsFragment extends Fragment {
         Parents = new ArrayList<>();
 
 
-        //Groupban levő gyerek lista feltöltése
-        Parents.add(new Person_test("Bélabács"));
-        Parents.add(new Person_test("Marika"));
-        Parents.add(new Person_test("Asszonyság"));
-        Parents.add(new Person_test("Bélabács"));
-        Parents.add(new Person_test("Marika"));
-        Parents.add(new Person_test("Asszonyság"));
-        Parents.add(new Person_test("Bélabács"));
-        Parents.add(new Person_test("Marika"));
-        Parents.add(new Person_test("Asszonyság"));
-        Parents.add(new Person_test("Bélabács"));
-        Parents.add(new Person_test("Marika"));
-        Parents.add(new Person_test("Asszonyság"));
-        Parents.add(new Person_test("Bélabács"));
-        Parents.add(new Person_test("Marika"));
-        Parents.add(new Person_test("Asszonyság"));
 
     }
 
@@ -54,7 +39,7 @@ public class ParentsFragment extends Fragment {
 
         v = inflater.inflate(R.layout.parents_fragment, container, false);
         myRecycleView = (RecyclerView) v.findViewById(R.id.parentsRecycleView);
-        RecyclerViewAdapter recycleAdapter = new RecyclerViewAdapter(getContext(),Parents);
+        UserRecyclerViewAdapter recycleAdapter = new UserRecyclerViewAdapter(getContext(),Parents);
         myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecycleView.setAdapter(recycleAdapter);
         return v;

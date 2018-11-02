@@ -16,6 +16,7 @@ import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.ParentsFragm
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.PostsFragment;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.TeacherFragment;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.ViewPagerAdapter;
+import io.swagger.client.api.DefaultApi;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -42,8 +43,8 @@ public class GroupActivity extends AppCompatActivity {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.AddFragment(new PostsFragment(), "Posts");
-        adapter.AddFragment(new TeacherFragment(), "Teachers");
-        adapter.AddFragment(new ParentsFragment(), "Parents");
+        //adapter.AddFragment(new TeacherFragment(), "Teachers");
+        //adapter.AddFragment(new ParentsFragment(), "Parents");
         adapter.AddFragment(new ChildrenFragment(), "Children");
 
         viewPager.setAdapter(adapter);

@@ -10,15 +10,16 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.Test_classes.Person_test;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
+import io.swagger.client.model.Child;
+import io.swagger.client.model.User;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.MyViewHolder> {
 
     Context mContext;
-    List<Person_test> mData;
+    List<User> mData;
 
-    public RecyclerViewAdapter(Context mContext, List<Person_test> mData) {
+    public UserRecyclerViewAdapter(Context mContext, List<User> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
