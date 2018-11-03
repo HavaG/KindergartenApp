@@ -28,4 +28,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example">Example action</string>
+
+    <string name="navigation_drager_open">Open navigation drawer</string>
+    <string name="navigation_drager_close">Close navigation drawer</string>
+    <string name="messageBtn">New Message</string>
 </resources>

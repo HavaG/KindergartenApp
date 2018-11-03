@@ -19,13 +19,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:layout_weight="1"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/GroupTitle">
-
-        </androidx.appcompat.widget.Toolbar>
+            android:background="@color/colorPrimary"
+            app:title="@string/GroupTitle"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:elevation="4dp"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
