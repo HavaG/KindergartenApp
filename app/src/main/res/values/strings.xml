@@ -10,5 +10,12 @@
     <string name="tab_chidlren">Children</string>
     <string name="tab_children">Children</string>
     <string name="GroupTitle">Group</string>
-    <string name="example_text">Something really important post. Lorem ipsum dolor sit amet, sa odio mauris justo. Luctus arcu, urna praesent at id quisque ac.</string>
+    <string name="example_text">Something really important post. Lorem ipsum dolor sit amet, sa odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Something really important post. Lorem ipsum dolor sit amet, sa odio mauris justo. Luctus arcu, urna praesent at id quisque ac.
+                                Something really important post. Lorem ipsum dolor sit amet, sa odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Something really important post. Lorem ipsum dolor sit amet, sa odio mauris justo. Luctus arcu, urna praesent at id quisque ac. </string>
+    <string name="example_name">Full Name</string>
+    <string name="LikeBtnLabel">Like</string>
+    <string name="hint_comment">Your comment...</string>
+    <string name="like_text">Already %s people liked it.</string>
+    <string name="question">Szerintetek A vagy B?</string>
+    <string name="example_answer">Legyen az A</string>
 </resources>

@@ -28,8 +28,6 @@ public class ParentsFragment extends Fragment {
 
         Parents = new ArrayList<>();
 
-
-
     }
 
     @Nullable

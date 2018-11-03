@@ -3,6 +3,7 @@ package hu.kindergartendeveloperteam.app.groupactivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 public class LoginActivity extends AppCompatActivity {
 

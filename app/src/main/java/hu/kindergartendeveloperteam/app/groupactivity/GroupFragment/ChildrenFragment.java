@@ -33,6 +33,8 @@ public class ChildrenFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         Children = new ArrayList<>();
+
+        /**
         try {
             User parent = new User();
             parent.setId(1);
@@ -55,6 +57,7 @@ public class ChildrenFragment extends Fragment {
         } catch (ApiException e) {
             e.printStackTrace();
         }
+         */
     }
 
     @Nullable

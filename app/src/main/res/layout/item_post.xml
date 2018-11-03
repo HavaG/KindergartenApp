@@ -1,54 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:chainUseRtl="true"
     tools:ignore="ExtraText">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <ScrollView
+        android:id="@+id/postScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/user_image"
-            android:layout_height="64dp"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/ic_person"/>
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
 
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
+        android:layout_above="@+id/footer" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="2"
-            android:text="Full Name"
-            android:layout_gravity="center_vertical"
-            android:textSize="24sp" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/posted_image"
-        android:layout_height="wrap_content"
+            //postoló user
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                //user képe
+                <ImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_person"/>
+
+                //user neve
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="8dp"
+                    android:layout_weight="2"
+                    android:text="@string/example_name"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            //a kiposztolt kép
+            <ImageView
+                android:id="@+id/posted_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bikes"/>
+
+
+            //a kiposztolt szoveg
+            <TextView
+                android:id="@+id/post_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:layout_weight="2"
+                android:text="@string/example_text"
+                android:textSize="18sp" />
+
+            //kérdés
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/question"
+                android:textSize="18sp" />
+
+            //válaszok 1,2,3...
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/answersRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="72dp" />
+
+            //Like
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            //like btn
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/LikeBtn"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="@string/LikeBtnLabel"
+                app:backgroundTint="@color/colorPrimary" />
+
+            //like-ok száma
+            <TextView
+                android:id="@+id/like_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:layout_weight="2"
+                android:text="@string/like_text"
+                android:textSize="14sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            //comment 1,2,3....
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commentRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    //My comment line
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:src="@drawable/bikes"/>
-
-    <TextView
-        android:id="@+id/post_text"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_weight="2"
-        android:text="@string/example_text"
-        android:layout_gravity="center_vertical"
-        android:textSize="18sp" />
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:id="@+id/footer"
+        android:gravity="bottom">
 
-    //kéréds
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_comment"
+            android:layout_toLeftOf="@+id/sendBtn">
 
-    //válaszok
-        //több renderelése egymás alá? o.O wtf
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CommentTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="3" />
 
-    //like btn
+        </com.google.android.material.textfield.TextInputLayout>
 
-    //comment 1,2,3....
-</LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sendBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            app:backgroundTint="@color/colorPrimary"
+            app:icon="@drawable/ic_send" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

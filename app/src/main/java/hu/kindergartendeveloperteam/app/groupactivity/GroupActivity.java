@@ -40,11 +40,12 @@ public class GroupActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         viewPager = (ViewPager) findViewById(R.id.viewPager_id);
+
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.AddFragment(new PostsFragment(), "Posts");
-        //adapter.AddFragment(new TeacherFragment(), "Teachers");
-        //adapter.AddFragment(new ParentsFragment(), "Parents");
+        adapter.AddFragment(new TeacherFragment(), "Teachers");
+        adapter.AddFragment(new ParentsFragment(), "Parents");
         adapter.AddFragment(new ChildrenFragment(), "Children");
 
         viewPager.setAdapter(adapter);
