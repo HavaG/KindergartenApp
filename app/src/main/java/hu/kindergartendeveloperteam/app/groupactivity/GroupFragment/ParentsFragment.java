@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.Test_classes.Person_test;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
 import io.swagger.client.model.User;
 
