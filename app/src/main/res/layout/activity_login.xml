@@ -21,8 +21,8 @@
         <ImageView
             android:id="@+id/AppLogoImageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:src="@drawable/logo"/>
+            android:layout_height="138dp"
+            android:src="@drawable/kindergarten_app_logo" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

@@ -14,15 +14,23 @@
             android:layout_height="wrap_content"/>
     </ScrollView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/LoginBtn"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/messageBtn"
-        app:backgroundTint="@color/colorPrimary"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:padding="8dp"/>
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:id="@+id/footer"
+        android:gravity="bottom">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/newMessageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/messageBtn"
+            app:backgroundTint="@color/colorPrimary"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
 </RelativeLayout>

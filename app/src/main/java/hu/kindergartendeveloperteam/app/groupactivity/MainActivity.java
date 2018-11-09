@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 openLoginActivity();
                 break;
             case R.id.nav_message:
+                openMessengerActivity();
                 break;
             default:
                 return true;
@@ -53,6 +54,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void openMessengerActivity() {
+        Intent intent = new Intent(this, MessengerActivity.class);
+        startActivity(intent);
     }
 
     private void openLoginActivity() {
