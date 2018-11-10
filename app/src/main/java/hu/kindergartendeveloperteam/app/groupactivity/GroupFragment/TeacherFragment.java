@@ -36,7 +36,7 @@ public class TeacherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.group_user_fragment, container, false);
+        v = inflater.inflate(R.layout.user_fragment, container, false);
         myRecycleView = (RecyclerView) v.findViewById(R.id.userRecycleView);
         UserRecyclerViewAdapter recycleAdapter = new UserRecyclerViewAdapter(getContext(),Teachers);
         myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));

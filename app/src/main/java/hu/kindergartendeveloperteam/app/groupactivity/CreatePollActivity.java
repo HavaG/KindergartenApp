@@ -43,8 +43,7 @@ public class CreatePollActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                LayoutInflater layoutInflater =
-                        (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater layoutInflater =(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 final View addView = layoutInflater.inflate(R.layout.poll_option_item, null);
                 AutoCompleteTextView textOut = (AutoCompleteTextView)addView.findViewById(R.id.textout);
                 textOut.setText(textIn.getText().toString());

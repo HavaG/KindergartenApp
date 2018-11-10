@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /**
+                 * mező kitöltésének ellenőrzése
+                 *
                 if (TextUtils.isEmpty(userName.getText())) {
                     userName.setError("Username is required!");
                 } else if (TextUtils.isEmpty(password.getText())) {

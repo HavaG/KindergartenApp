@@ -1,7 +1,9 @@
 package hu.kindergartendeveloperteam.app.groupactivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -24,8 +26,10 @@ public class GroupChooseActivity extends AppCompatActivity {
         names.add("Gőzmozdony");
         names.add("Szivárvány");
 
+
         for (int i = 0; i < names.size(); i++) {
-            Button myButton = new Button(this);
+            LayoutInflater layoutInflater =(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            final Button myButton = (Button) layoutInflater.inflate(R.layout.group_choose_btn, null);
             myButton.setText(names.get(i));
             myButton.setId(i);
             final int id_ = myButton.getId();

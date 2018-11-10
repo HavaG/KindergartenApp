@@ -45,4 +45,5 @@
     <string name="your_poll">Write your poll!</string>
     <string name="hint_poll">What\'s your question?</string>
     <string name="post">Post</string>
+    <string name="example">example</string>
 </resources>

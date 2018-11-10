@@ -14,6 +14,10 @@ public class MessengerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messenger_activity);
 
+
+        //TODO: create messenger fragment
+
+
         Button newMessageBtn = (Button) findViewById(R.id.newMessageBtn);
 
         newMessageBtn.setOnClickListener(new View.OnClickListener() {

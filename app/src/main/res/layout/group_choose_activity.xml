@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".GroupChooseActivity"
     android:orientation="vertical"
-    android:id="@+id/groupLayoutBtn">
+    android:id="@+id/groupLayoutBtn"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:paddingTop="20dp">
 
 </com.google.android.material.circularreveal.CircularRevealLinearLayout>
