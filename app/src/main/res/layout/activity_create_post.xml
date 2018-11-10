@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.CircularRevealRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/writePost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/write_your_post"
+        android:gravity="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_post"
+        android:layout_below="@+id/writePost"
+        android:id="@+id/TextInputEditText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/PostTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="139dp"
+            android:maxLines="10" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addPhotoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/colorPrimary"
+        android:text="@string/add_photo"
+        android:layout_below="@+id/TextInputEditText"/>
+
+    <ImageView
+        android:id="@+id/AppLogoImageView"
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:src="@drawable/kindergarten_app_logo"
+        android:layout_below="@+id/addPhotoBtn"/>
+</com.google.android.material.circularreveal.CircularRevealRelativeLayout>

@@ -14,5 +14,17 @@
             android:id="@+id/nav_message"
             android:icon="@drawable/ic_message"
             android:title="Message" />
+        <item
+            android:id="@+id/nav_CreatePost"
+            android:icon="@drawable/ic_edit"
+            android:title="Create Post" />
+        <item
+            android:id="@+id/nav_CreatePoll"
+            android:icon="@drawable/ic_poll"
+            android:title="Create Poll" />
+        <item
+            android:id="@+id/nav_CreateMapPost"
+            android:icon="@drawable/ic_map"
+            android:title="Create Map Post" />
     </group>
 </menu>

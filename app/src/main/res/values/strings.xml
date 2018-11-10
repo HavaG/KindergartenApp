@@ -35,4 +35,13 @@
     <string name="ok">ok</string>
     <string name="cancel">cancel</string>
     <string name="new_message">New Message</string>
+    <string name="hint_post">What\'s in your mind?</string>
+    <string name="write_your_post">Write your post!</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="your_question">What is your question?</string>
+    <string name="add_option">Add Option</string>
+    <string name="remove">Remove</string>
+    <string name="add">Add</string>
+    <string name="your_poll">Write your poll!</string>
+    <string name="hint_poll">What\'s your question?</string>
 </resources>

@@ -12,14 +12,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="hu.kindergartendeveloperteam.app.groupactivity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name="hu.kindergartendeveloperteam.app.groupactivity.GroupActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name="hu.kindergartendeveloperteam.app.groupactivity.MessengerActivity"
-            android:theme="@style/AppTheme"/>
+        <activity android:name="hu.kindergartendeveloperteam.app.groupactivity.GroupActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="hu.kindergartendeveloperteam.app.groupactivity.CreatePollActivity"/>
+        <activity android:name="hu.kindergartendeveloperteam.app.groupactivity.CreatePostActivity"/>
+        <activity android:name="hu.kindergartendeveloperteam.app.groupactivity.MessengerActivity"/>
+
         <activity android:name="hu.kindergartendeveloperteam.app.groupactivity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

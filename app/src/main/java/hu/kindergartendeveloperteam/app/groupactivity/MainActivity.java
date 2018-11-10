@@ -48,6 +48,15 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
             case R.id.nav_message:
                 openMessengerActivity();
                 break;
+            case R.id.nav_CreatePost:
+                openCreatePostActivity();
+                break;
+            case R.id.nav_CreateMapPost:
+                openCreateMapPostActivity();
+                break;
+            case R.id.nav_CreatePoll:
+                openCreatePollActivity();
+                break;
             default:
                 return true;
         }
@@ -56,19 +65,29 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         return true;
     }
 
+    private void openCreatePollActivity() {
+        startActivity(new Intent(this, CreatePollActivity.class));
+    }
+
+    private void openCreatePostActivity() {
+        startActivity(new Intent(this, CreatePostActivity.class));
+    }
+
+    private void openCreateMapPostActivity() {
+        //TODO:
+        return;
+    }
+
     private void openMessengerActivity() {
-        Intent intent = new Intent(this, MessengerActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, MessengerActivity.class));
     }
 
     private void openLoginActivity() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     public void openGroupActivity() {
-        Intent intent = new Intent(this, GroupActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, GroupActivity.class));
     }
 
     @Override
