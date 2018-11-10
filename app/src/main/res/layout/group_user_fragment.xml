@@ -8,7 +8,7 @@
     tools:context=".GroupActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/parentsRecycleView"
+        android:id="@+id/userRecycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

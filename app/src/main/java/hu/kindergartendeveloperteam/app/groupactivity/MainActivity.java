@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -40,10 +40,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_group:
-                openGroupActivity();
-                break;
-            case R.id.nav_login:
-                openLoginActivity();
+                openGroupChooseActivity();
                 break;
             case R.id.nav_message:
                 openMessengerActivity();
@@ -56,6 +53,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 break;
             case R.id.nav_CreatePoll:
                 openCreatePollActivity();
+                break;
+            case R.id.nav_logout:
+                openLoginActivity();
                 break;
             default:
                 return true;
@@ -74,8 +74,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void openCreateMapPostActivity() {
-        //TODO:
-        return;
+        //TODO: openCreateMapPostActivity
     }
 
     private void openMessengerActivity() {
@@ -86,8 +85,8 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         startActivity(new Intent(this, LoginActivity.class));
     }
 
-    public void openGroupActivity() {
-        startActivity(new Intent(this, GroupActivity.class));
+    public void openGroupChooseActivity() {
+        startActivity(new Intent(this, GroupChooseActivity.class));
     }
 
     @Override

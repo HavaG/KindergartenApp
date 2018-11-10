@@ -29,6 +29,8 @@ public class ChildrenFragment extends Fragment {
 
         Children = new ArrayList<>();
 
+        //TODO:valós adatokkal feltöltött Children database
+
         /**
         try {
             User parent = new User();
@@ -60,8 +62,8 @@ public class ChildrenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.children_fragment, container, false);
-        myRecycleView = (RecyclerView) v.findViewById(R.id.childrenRecycleView);
+        v = inflater.inflate(R.layout.group_user_fragment, container, false);
+        myRecycleView = (RecyclerView) v.findViewById(R.id.userRecycleView);
         ChildrenRecyclerViewAdapter recycleAdapter = new ChildrenRecyclerViewAdapter(getContext(),Children);
         myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecycleView.setAdapter(recycleAdapter);

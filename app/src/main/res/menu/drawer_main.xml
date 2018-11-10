@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/ic_login"
-            android:title="Login" />
-        <item
             android:id="@+id/nav_group"
             android:icon="@drawable/ic_group"
             android:title="Group" />
@@ -26,5 +22,9 @@
             android:id="@+id/nav_CreateMapPost"
             android:icon="@drawable/ic_map"
             android:title="Create Map Post" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
     </group>
 </menu>

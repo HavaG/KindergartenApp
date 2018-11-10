@@ -13,7 +13,9 @@ public class PostsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.posts_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.group_posts_fragment, container, false);
+
+        //TODO: post kirajzolása (csak az a része ami kell)
 
         return rootView;
     }

@@ -7,20 +7,20 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-class MessengerActivity extends AppCompatActivity {
+public class MessengerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messenger);
+        setContentView(R.layout.messenger_activity);
 
         Button newMessageBtn = (Button) findViewById(R.id.newMessageBtn);
 
         newMessageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), GroupActivity.class);
-                intent.putExtra("onlyMessage", true);
+                Intent intent = new Intent(getBaseContext(), GroupChooseActivity.class);
+                intent.putExtra("only_message", true);
                 startActivity(intent);
             }
         });

@@ -1,17 +1,17 @@
 package hu.kindergartendeveloperteam.app.groupactivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.viewpager.widget.ViewPager;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.ChildrenFragment;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.ParentsFragment;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.PostsFragment;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.TeacherFragment;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.ViewPagerAdapter;
-
-import android.os.Bundle;
 
 public class GroupActivity extends AppCompatActivity {
 
@@ -24,14 +24,18 @@ public class GroupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_group);
+        setContentView(R.layout.group_activity);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         viewPager = (ViewPager) findViewById(R.id.viewPager_id);
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        Boolean onlyMessage = getIntent().getBooleanExtra("onlyMessage", false);
+        //TODO: ha csak message, akkor tanárokat és szülőket ír ki (viszont ebből az összes kéne)
+        Boolean onlyMessage = getIntent().getBooleanExtra("only_message", false);
+
+        //TODO: ehhez a csoporthoz tartozó dolgokat kell kiírni
+        String groupName = getIntent().getStringExtra("group_name");
 
         if(onlyMessage){
             adapter.AddFragment(new TeacherFragment(), "Teachers");
@@ -49,5 +53,12 @@ public class GroupActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
