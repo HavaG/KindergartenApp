@@ -33,7 +33,7 @@ public class CreatePollActivity extends AppCompatActivity {
         buttonOk.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //TODO: create poll type post and add options
+                //TODO: create poll type post and add . Goes to the created post
 
                 startActivity(new Intent(getBaseContext(), MainActivity.class));
             }

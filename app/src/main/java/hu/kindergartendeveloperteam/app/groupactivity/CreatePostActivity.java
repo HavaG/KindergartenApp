@@ -49,7 +49,8 @@ public class CreatePostActivity extends AppCompatActivity {
     }
 
     public void createPost() {
-        //TODO: create post, db add post
+        //TODO: create post, db add post. Goes to the created post.
+        startActivity( new Intent(this, MainActivity.class));
     }
 
     public void onImageGalleryClicked(View v)

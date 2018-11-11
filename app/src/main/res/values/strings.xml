@@ -46,4 +46,5 @@
     <string name="hint_poll">What\'s your question?</string>
     <string name="post">Post</string>
     <string name="example">example</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

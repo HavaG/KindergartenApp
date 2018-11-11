@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 openCreatePollActivity();
                 break;
             case R.id.nav_logout:
-                openLoginActivity();
+                Logout();
                 break;
             default:
                 return true;
@@ -74,14 +74,15 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void openCreateMapPostActivity() {
-        //TODO: openCreateMapPostActivity
+        startActivity(new Intent(this, MapsActivity.class));
     }
 
     private void openMessengerActivity() {
         startActivity(new Intent(this, MessengerActivity.class));
     }
 
-    private void openLoginActivity() {
+    private void Logout() {
+        //TODO: logout the user
         startActivity(new Intent(this, LoginActivity.class));
     }
 
