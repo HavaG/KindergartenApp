@@ -35,21 +35,19 @@
         android:layout_below="@+id/TextInputEditText"
         android:id="@+id/buttons">
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/addPhotoBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_photo"
-            app:backgroundTint="@color/colorPrimary"
             android:layout_weight="1"
             android:layout_margin="8dp"/>
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/postBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/post"
-            app:backgroundTint="@color/colorPrimary"
             android:layout_toRightOf="@+id/addPhotoBtn"
             android:layout_toEndOf="@+id/addPhotoBtn"
             android:layout_weight="1"

@@ -47,4 +47,7 @@
     <string name="post">Post</string>
     <string name="example">example</string>
     <string name="title_activity_maps">Map</string>
+    <string name="map_post">Make your map post!</string>
+    <string name="add_marker">Add marker</string>
+    <string name="marker_s_name">Marker\'s name</string>
 </resources>

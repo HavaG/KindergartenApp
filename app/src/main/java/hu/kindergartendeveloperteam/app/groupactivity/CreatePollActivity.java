@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CreatePollActivity extends AppCompatActivity {
     AutoCompleteTextView textIn;
+    LinearLayout container;
     Button buttonAdd;
     Button buttonOk;
-    LinearLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
