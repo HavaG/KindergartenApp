@@ -43,20 +43,22 @@ public class CreatePollActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                LayoutInflater layoutInflater =(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                final View addView = layoutInflater.inflate(R.layout.poll_option_item, null);
-                AutoCompleteTextView textOut = (AutoCompleteTextView)addView.findViewById(R.id.textout);
-                textOut.setText(textIn.getText().toString());
-                Button buttonRemove = (Button)addView.findViewById(R.id.removeBtn);
+                if(textIn != null && !textIn.getText().toString().equals("")) {
+                    LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    final View addView = layoutInflater.inflate(R.layout.poll_option_item, null);
+                    AutoCompleteTextView textOut = (AutoCompleteTextView) addView.findViewById(R.id.textout);
+                    textOut.setText(textIn.getText().toString());
+                    Button buttonRemove = (Button) addView.findViewById(R.id.removeBtn);
 
-                buttonRemove.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ((LinearLayout)addView.getParent()).removeView(addView);
-                    }
-                });
-                textIn.setText("");
-                container.addView(addView);
+                    buttonRemove.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ((LinearLayout) addView.getParent()).removeView(addView);
+                        }
+                    });
+                    textIn.setText("");
+                    container.addView(addView);
+                }
             }
         });
     }

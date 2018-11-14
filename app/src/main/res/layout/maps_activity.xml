@@ -34,7 +34,7 @@
                     android:id="@+id/PollTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="10" />
+                    android:maxLines="5" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
