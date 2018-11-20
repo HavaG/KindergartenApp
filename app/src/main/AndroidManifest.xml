@@ -11,7 +11,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -30,8 +30,8 @@
         <activity android:name=".CreatePollActivity" />
         <activity android:name=".GroupChooseActivity" />
         <activity android:name=".MessengerActivity" />
-        <activity android:name=".CreatePostActivity"/>
-        <activity android:name=".MapsActivity"/>
+        <activity android:name=".CreatePostActivity" />
+        <activity android:name=".MapsActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,7 +49,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyAF31cIqNWqeFlxqYDJ5oI6PWkc2hGh-k4" />
 
     </application>
 

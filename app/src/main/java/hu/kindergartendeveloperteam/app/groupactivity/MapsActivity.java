@@ -4,8 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +12,18 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.io.IOException;
-import java.util.List;
 
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -34,6 +33,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     AutoCompleteTextView textIn;
     LinearLayout container;
+    private final int PLACE_PICKER_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +47,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         textIn = (AutoCompleteTextView)findViewById(R.id.textin);
 
-        Button buttonAddMarker = (Button) findViewById(R.id.addMarker);
+        Button buttonPlacePicker = (Button) findViewById(R.id.addMarker);
 
         container = (LinearLayout) findViewById(R.id.container);
 
-        buttonAddMarker.setOnClickListener(new View.OnClickListener(){
+        buttonPlacePicker.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                onAddMarker(v);
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                try {
+                    startActivityForResult(builder.build(MapsActivity.this), PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -68,11 +76,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PLACE_PICKER_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                Place place = PlacePicker.getPlace(this, data);
+
+                LatLng latLng = place.getLatLng();
+                final Marker m = mMap.addMarker(new MarkerOptions().position(latLng).title(place.getName().toString()));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+
+                LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                final View addView = layoutInflater.inflate(R.layout.maps_marker_item, null);
+                final TextView textOut = (TextView) addView.findViewById(R.id.markerName);
+                textOut.setText(place.getName().toString());
+                Button buttonRemove = (Button) addView.findViewById(R.id.removeMarkerBtn);
+
+                buttonRemove.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        m.remove();
+                        ((LinearLayout) addView.getParent()).removeView(addView);
+                    }
+                });
+                container.addView(addView);
+            }
+        }
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -84,56 +116,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             return;
         }
+
+        mMap = googleMap;
         mMap.setMyLocationEnabled(true);
+
+
         LatLng Bp = new LatLng(19.040235, 47.497912);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Bp));
-    }
-
-    public void onAddMarker(View view){
-        if(textIn != null && !textIn.getText().toString().equals("")) {
-            boolean success = setMarker();
-            if(success) {
-                //add the view
-                LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                final View addView = layoutInflater.inflate(R.layout.maps_marker_item, null);
-                TextView textOut = (TextView) addView.findViewById(R.id.markerName);
-                textOut.setText(textIn.getText().toString());
-                Button buttonRemove = (Button) addView.findViewById(R.id.removeMarkerBtn);
-
-                //TODO: remove also the marker
-                buttonRemove.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ((LinearLayout) addView.getParent()).removeView(addView);
-                    }
-                });
-                container.addView(addView);
-            }
-            else {
-                Toast.makeText(this, "Place not found", Toast.LENGTH_LONG).show();
-            }
-            textIn.setText("");
-        }
-    }
-
-    public boolean setMarker(){
-        //set the marker
-        List<Address> addresses = null;
-        String location = textIn.getText().toString();
-        Geocoder geocoder = new Geocoder(this);
-        try {
-            addresses = geocoder.getFromLocationName(location, 5);
-            if(addresses.size() != 0) {
-                Address address = addresses.get(0);
-                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(latLng).title(location));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                return true;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Bp, 10));
     }
 }
