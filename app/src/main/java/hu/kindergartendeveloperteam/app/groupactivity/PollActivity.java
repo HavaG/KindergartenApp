@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreatePollActivity extends AppCompatActivity {
+public class PollActivity extends AppCompatActivity {
     AutoCompleteTextView textIn;
     LinearLayout container;
     Button buttonAdd;
@@ -35,7 +35,10 @@ public class CreatePollActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO: create poll type post and add . Goes to the created post
 
-                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
             }
         } );
 
@@ -46,9 +49,9 @@ public class CreatePollActivity extends AppCompatActivity {
                 if(textIn != null && !textIn.getText().toString().equals("")) {
                     LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     final View addView = layoutInflater.inflate(R.layout.poll_option_item, null);
-                    AutoCompleteTextView textOut = (AutoCompleteTextView) addView.findViewById(R.id.textout);
+                    AutoCompleteTextView textOut = addView.findViewById(R.id.textout);
                     textOut.setText(textIn.getText().toString());
-                    Button buttonRemove = (Button) addView.findViewById(R.id.removeBtn);
+                    Button buttonRemove = addView.findViewById(R.id.removeBtn);
 
                     buttonRemove.setOnClickListener(new View.OnClickListener() {
                         @Override

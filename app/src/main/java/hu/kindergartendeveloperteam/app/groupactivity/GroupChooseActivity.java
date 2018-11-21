@@ -34,16 +34,27 @@ public class GroupChooseActivity extends AppCompatActivity {
             myButton.setId(i);
             final int id_ = myButton.getId();
 
-            LinearLayout layout = (LinearLayout) findViewById(R.id.groupLayoutBtn);
+            LinearLayout layout = findViewById(R.id.groupLayoutBtn);
             layout.addView(myButton);
 
             myButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    //TODO: group activiy megnyitása (extra infó, hogy melyik csoportot kell renderelni?)
-                    Intent intent = new Intent(getBaseContext(), GroupActivity.class);
+                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
+
                     final String groupName = names.get(id_);
                     intent.putExtra("group_name", groupName);
-                    intent.putExtra("only_message", getIntent().getBooleanExtra("only_message", false));
+
+                    String open = getIntent().getStringExtra("open");
+                    if(open.equals("group")){
+                        intent = new Intent(getBaseContext(), GroupActivity.class);
+                        intent.putExtra("only_message", getIntent().getBooleanExtra("only_message", false));
+                    } else if(open.equals("maps")) {
+                        intent = new Intent(getBaseContext(), MapsActivity.class);
+                    } else if(open.equals("poll")) {
+                        intent = new Intent(getBaseContext(), PollActivity.class);
+                    } else if(open.equals("post")) {
+                        intent = new Intent(getBaseContext(), PostActivity.class);
+                    }
                     startActivity(intent);
                 }
             });

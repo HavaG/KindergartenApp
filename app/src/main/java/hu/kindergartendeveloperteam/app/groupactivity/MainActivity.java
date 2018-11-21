@@ -1,5 +1,6 @@
 package hu.kindergartendeveloperteam.app.groupactivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -37,10 +39,24 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Really Exit?")
+                .setMessage("Are you sure you want to exit?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        MainActivity.super.onBackPressed();
+                    }
+                }).create().show();
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_group:
-                openGroupChooseActivity();
+                openGroupActivity();
                 break;
             case R.id.nav_message:
                 openMessengerActivity();
@@ -66,15 +82,15 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void openCreatePollActivity() {
-        startActivity(new Intent(this, CreatePollActivity.class));
+        startActivity(new Intent(this, GroupChooseActivity.class).putExtra("open", "poll"));
     }
 
     private void openCreatePostActivity() {
-        startActivity(new Intent(this, CreatePostActivity.class));
+        startActivity(new Intent(this, GroupChooseActivity.class).putExtra("open", "post"));
     }
 
     private void openCreateMapPostActivity() {
-        startActivity(new Intent(this, MapsActivity.class));
+        startActivity(new Intent(this, GroupChooseActivity.class).putExtra("open", "maps"));
     }
 
     private void openMessengerActivity() {
@@ -86,16 +102,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         startActivity(new Intent(this, LoginActivity.class));
     }
 
-    public void openGroupChooseActivity() {
-        startActivity(new Intent(this, GroupChooseActivity.class));
+    public void openGroupActivity() {
+        startActivity(new Intent(this, GroupChooseActivity.class).putExtra("open", "group"));
     }
-
-    @Override
-    public void onBackPressed() {
-        if(drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else
-            super.onBackPressed();
-    }
-
 }

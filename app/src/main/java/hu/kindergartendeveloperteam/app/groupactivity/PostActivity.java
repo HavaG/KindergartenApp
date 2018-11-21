@@ -17,7 +17,7 @@ import java.io.InputStream;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreatePostActivity extends AppCompatActivity {
+public class PostActivity extends AppCompatActivity {
 
     public static final int IMAGE_GALLERY_REQUEST = 20;
     public ImageView imagePicture;
@@ -44,13 +44,17 @@ public class CreatePostActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 createPost();
+
+                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
             }
         });
     }
 
     public void createPost() {
         //TODO: create post, db add post. Goes to the created post.
-        startActivity( new Intent(this, MainActivity.class));
     }
 
     public void onImageGalleryClicked(View v)

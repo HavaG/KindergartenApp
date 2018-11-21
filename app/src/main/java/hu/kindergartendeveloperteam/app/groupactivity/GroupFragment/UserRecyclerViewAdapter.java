@@ -28,7 +28,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v;
-        v = LayoutInflater.from(mContext).inflate(R.layout.gropu_person_item,parent,false);
+        v = LayoutInflater.from(mContext).inflate(R.layout.group_person_item,parent,false);
         return new MyViewHolder(v);
     }
 

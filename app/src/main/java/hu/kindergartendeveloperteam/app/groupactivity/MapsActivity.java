@@ -45,11 +45,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
-        textIn = (AutoCompleteTextView)findViewById(R.id.textin);
+        textIn = findViewById(R.id.textin);
 
-        Button buttonPlacePicker = (Button) findViewById(R.id.addMarker);
+        Button buttonPlacePicker = findViewById(R.id.addMarker);
 
-        container = (LinearLayout) findViewById(R.id.container);
+        container = findViewById(R.id.container);
 
         buttonPlacePicker.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -66,12 +66,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        Button postBtn = (Button) findViewById(R.id.post);
+        Button postBtn = findViewById(R.id.post);
         postBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //TODO: make post and save
-                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -87,9 +90,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 final View addView = layoutInflater.inflate(R.layout.maps_marker_item, null);
-                final TextView textOut = (TextView) addView.findViewById(R.id.markerName);
+                final TextView textOut = addView.findViewById(R.id.markerName);
                 textOut.setText(place.getName().toString());
-                Button buttonRemove = (Button) addView.findViewById(R.id.removeMarkerBtn);
+                Button buttonRemove = addView.findViewById(R.id.removeMarkerBtn);
 
                 buttonRemove.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -119,9 +122,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
-
-
-        LatLng Bp = new LatLng(19.040235, 47.497912);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Bp, 10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(47.49801,19.03991), 10.0f));
     }
 }
