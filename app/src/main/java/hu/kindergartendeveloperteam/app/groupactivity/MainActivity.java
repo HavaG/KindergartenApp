@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void openMyChildActivity() {
-
+        startActivity(new Intent(this, MyChildActivity.class));
     }
 
     private void openCreatePollActivity() {

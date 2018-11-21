@@ -27,6 +27,9 @@
         <activity
             android:name=".GroupActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyChildActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PollActivity" />
         <activity android:name=".GroupChooseActivity" />
         <activity android:name=".MessengerActivity" />
@@ -50,8 +53,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAF31cIqNWqeFlxqYDJ5oI6PWkc2hGh-k4" />
-
-        <activity android:name=".MyChildActivity"></activity>
     </application>
 
 </manifest>
