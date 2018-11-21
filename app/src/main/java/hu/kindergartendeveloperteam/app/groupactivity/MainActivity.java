@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
             case R.id.nav_group:
                 openGroupActivity();
                 break;
+            case R.id.nav_child:
+                openMyChildActivity();
+                break;
             case R.id.nav_message:
                 openMessengerActivity();
                 break;
@@ -81,6 +84,10 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         return true;
     }
 
+    private void openMyChildActivity() {
+
+    }
+
     private void openCreatePollActivity() {
         startActivity(new Intent(this, GroupChooseActivity.class).putExtra("open", "poll"));
     }
@@ -94,7 +101,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void openMessengerActivity() {
-        startActivity(new Intent(this, MessengerActivity.class));
+        startActivity(new Intent(this, MessengerActivity.class).putExtra("only_message", true));
     }
 
     private void Logout() {

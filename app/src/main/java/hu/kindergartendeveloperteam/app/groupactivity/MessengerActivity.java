@@ -24,7 +24,7 @@ public class MessengerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), GroupChooseActivity.class);
-                intent.putExtra("only_message", true);
+                intent.putExtra("only_message", true).putExtra("open", "group");
                 startActivity(intent);
             }
         });
