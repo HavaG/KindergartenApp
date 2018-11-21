@@ -1,4 +1,4 @@
-package hu.kindergartendeveloperteam.app.groupactivity.GroupFragment;
+package hu.kindergartendeveloperteam.app.groupactivity;
 
 import java.util.ArrayList;
 import java.util.List;

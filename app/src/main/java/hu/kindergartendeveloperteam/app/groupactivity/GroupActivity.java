@@ -11,7 +11,6 @@ import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.ChildrenFrag
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.ParentsFragment;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.PostsFragment;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.TeacherFragment;
-import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.ViewPagerAdapter;
 
 public class GroupActivity extends AppCompatActivity {
 
@@ -26,8 +25,8 @@ public class GroupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_activity);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        viewPager = (ViewPager) findViewById(R.id.viewPager_id);
+        tabLayout = findViewById(R.id.tabs);
+        viewPager = findViewById(R.id.viewPager_id);
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 

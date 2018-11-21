@@ -34,4 +34,16 @@
         tools:layout_editor_absoluteY="56dp"
         tools:ignore="MissingConstraints" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notes_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/compactcalendar_view"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

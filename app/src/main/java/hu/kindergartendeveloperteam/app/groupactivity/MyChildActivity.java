@@ -14,9 +14,13 @@ import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+import hu.kindergartendeveloperteam.app.groupactivity.MyChildFragment.NotesFragment;
 
 public class MyChildActivity extends AppCompatActivity {
 
+    private ViewPagerAdapter adapter;
+    private ViewPager viewPager;
     CompactCalendarView compactCalendar;
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
 
@@ -31,6 +35,12 @@ public class MyChildActivity extends AppCompatActivity {
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(dateFormatMonth.format(compactCalendar.getFirstDayOfCurrentMonth()));
+
+
+        viewPager = findViewById(R.id.viewPager_id);
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.AddFragment(new NotesFragment(), "Notes");
+        viewPager.setAdapter(adapter);
 
 
 
