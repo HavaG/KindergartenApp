@@ -15,9 +15,7 @@ import hu.kindergartendeveloperteam.app.groupactivity.GroupFragment.TeacherFragm
 public class GroupActivity extends AppCompatActivity {
 
     private ViewPagerAdapter adapter;
-
     private ViewPager viewPager;
-
     private TabLayout tabLayout;
 
     @Override
