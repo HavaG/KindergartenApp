@@ -26,7 +26,7 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 28
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -40,7 +40,6 @@ android {
             if (outputFile != null && outputFile.name.endsWith('.aar')) {
                 def fileName = "${project.name}-${variant.baseName}-${version}.aar"
                 output.outputFileName = new File("release", fileName)
-
             }
         }
     }

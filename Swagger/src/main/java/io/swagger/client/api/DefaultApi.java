@@ -12,8 +12,25 @@
 
 package io.swagger.client.api;
 
+import io.swagger.client.ApiInvoker;
+import io.swagger.client.ApiException;
+import io.swagger.client.Pair;
+
+import io.swagger.client.model.*;
+
+import java.util.*;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+
+import io.swagger.client.model.Child;
+import io.swagger.client.model.Group;
+import io.swagger.client.model.Message;
+import io.swagger.client.model.Note;
+import io.swagger.client.model.Post;
+import io.swagger.client.model.Presence;
+import io.swagger.client.model.User;
+import io.swagger.client.model.Vote;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -25,20 +42,8 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiInvoker;
-import io.swagger.client.Pair;
-import io.swagger.client.model.Child;
-import io.swagger.client.model.Group;
-import io.swagger.client.model.Message;
-import io.swagger.client.model.Note;
-import io.swagger.client.model.Post;
-import io.swagger.client.model.Presence;
-import io.swagger.client.model.User;
-import io.swagger.client.model.Vote;
-
 public class DefaultApi {
-  String basePath = "http://kindergarten.westeurope.cloudapp.azure.com:8080/api";
+  String basePath = "https://virtserver.swaggerhub.com/KDT5/KDTBackend/1.0.0";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {

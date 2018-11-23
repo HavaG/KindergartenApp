@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         MainActivity.super.onBackPressed();
+                        finishAffinity();
                     }
                 }).create().show();
     }
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void openMyChildActivity() {
-        startActivity(new Intent(this, MyChildActivity.class));
+        startActivity(new Intent(this, MyChildChooseActivity.class));
     }
 
     private void openCreatePollActivity() {

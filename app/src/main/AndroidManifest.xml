@@ -30,8 +30,9 @@
         <activity
             android:name=".MyChildActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PollActivity" />
+        <activity android:name=".PollActivity"/>
         <activity android:name=".GroupChooseActivity" />
+        <activity android:name=".MyChildChooseActivity" />
         <activity android:name=".MessengerActivity" />
         <activity android:name=".PostActivity" />
         <activity android:name=".MapsActivity" />
