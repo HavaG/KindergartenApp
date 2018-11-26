@@ -65,11 +65,11 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
         Integer groupId = 56; // Integer | The id of the group
-        Integer childId = 56; // Integer | The id of the child to add
+        Child child = new Child(); // Child | The child to create and add
         try {
-            apiInstance.addChild(groupId, childId);
+            apiInstance.addChildToGroup(groupId, child);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#addChild");
+            System.err.println("Exception when calling DefaultApi#addChildToGroup");
             e.printStackTrace();
         }
     }
@@ -79,36 +79,33 @@ public class DefaultApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://virtserver.swaggerhub.com/KDT5/KDTBackend/1.0.0*
+All URIs are relative to *http://http://kindergarten.westeurope.cloudapp.azure.com/api/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**addChild**](docs/DefaultApi.md#addChild) | **POST** /group/{groupId}/addChild | adds a child
-*DefaultApi* | [**addNote**](docs/DefaultApi.md#addNote) | **POST** /child/{childId}/addNote | adds a note
-*DefaultApi* | [**addTeacher**](docs/DefaultApi.md#addTeacher) | **POST** /group/{groupId}/addTeacher | adds a teacher
-*DefaultApi* | [**comment**](docs/DefaultApi.md#comment) | **POST** /group/{groupId}/post/{postId}/comment | makes a comment
-*DefaultApi* | [**createChild**](docs/DefaultApi.md#createChild) | **POST** /createChild | create a child
+*DefaultApi* | [**addChildToGroup**](docs/DefaultApi.md#addChildToGroup) | **POST** /group/{groupId}/addChild | adds a child
+*DefaultApi* | [**addNoteToChild**](docs/DefaultApi.md#addNoteToChild) | **POST** /child/{childId}/addNote | adds a note
+*DefaultApi* | [**addUserToGroup**](docs/DefaultApi.md#addUserToGroup) | **POST** /group/{groupId}/addUser | adds a user
+*DefaultApi* | [**commentOnPost**](docs/DefaultApi.md#commentOnPost) | **POST** /post/{postId}/comment | makes a comment
+*DefaultApi* | [**createGroup**](docs/DefaultApi.md#createGroup) | **POST** /createGroup | create a group
+*DefaultApi* | [**createPost**](docs/DefaultApi.md#createPost) | **POST** /group/{groupId}/createPost | create a post
+*DefaultApi* | [**createUser**](docs/DefaultApi.md#createUser) | **POST** /createUser | create a user
 *DefaultApi* | [**deleteGroup**](docs/DefaultApi.md#deleteGroup) | **POST** /group/{groupId}/deleteGroup | deletes the group
-*DefaultApi* | [**edit**](docs/DefaultApi.md#edit) | **POST** /group/{groupId}/post/{postId}/edit | edits the post
 *DefaultApi* | [**editChild**](docs/DefaultApi.md#editChild) | **POST** /child/{childId}/edit | edit a child
-*DefaultApi* | [**editPresence**](docs/DefaultApi.md#editPresence) | **POST** /child/{childId}/editPresence | edit a child&#39;s presence
+*DefaultApi* | [**editPost**](docs/DefaultApi.md#editPost) | **POST** /post/{postId}/edit | edits the post
+*DefaultApi* | [**editPresenceOfChild**](docs/DefaultApi.md#editPresenceOfChild) | **POST** /child/{childId}/editPresence | edit a child&#39;s presence
 *DefaultApi* | [**getChild**](docs/DefaultApi.md#getChild) | **GET** /child/{childId} | Gets a child
-*DefaultApi* | [**getChildren**](docs/DefaultApi.md#getChildren) | **GET** /group/{groupId}/getChildren | Gets children
 *DefaultApi* | [**getGroup**](docs/DefaultApi.md#getGroup) | **GET** /group/{groupId} | Gets a group
-*DefaultApi* | [**getMessage**](docs/DefaultApi.md#getMessage) | **GET** /user/{parentId}/getMessages | get messages
-*DefaultApi* | [**getNotes**](docs/DefaultApi.md#getNotes) | **GET** /child/{childId}/getNotes | get all notes
-*DefaultApi* | [**getParent**](docs/DefaultApi.md#getParent) | **GET** /user/{parentId} | Gets a parent
-*DefaultApi* | [**getParents**](docs/DefaultApi.md#getParents) | **GET** /group/{groupId}/getParents | Gets parents
-*DefaultApi* | [**getPost**](docs/DefaultApi.md#getPost) | **GET** /group/{groupId}/post/{postId} | Gets a post
-*DefaultApi* | [**getPosts**](docs/DefaultApi.md#getPosts) | **GET** /group/{groupId}/getPosts | Gets posts
-*DefaultApi* | [**getTeachers**](docs/DefaultApi.md#getTeachers) | **GET** /group/{groupId}/getTeachers | Gets teachers
-*DefaultApi* | [**getUsers**](docs/DefaultApi.md#getUsers) | **GET** /group/{groupId}/getUsers | Gets users
-*DefaultApi* | [**like**](docs/DefaultApi.md#like) | **POST** /group/{groupId}/post/{postId}/like | makes a like
-*DefaultApi* | [**removeChild**](docs/DefaultApi.md#removeChild) | **POST** /group/{groupId}/removeChild | removes a child
-*DefaultApi* | [**removeTeacher**](docs/DefaultApi.md#removeTeacher) | **POST** /group/{groupId}/removeTeacher | removes a teacher
-*DefaultApi* | [**sendMessage**](docs/DefaultApi.md#sendMessage) | **POST** /user/{parentId}/sendMessage | send a message
-*DefaultApi* | [**setParent**](docs/DefaultApi.md#setParent) | **POST** /child/{childId}/setParent | set a child&#39;s parent
-*DefaultApi* | [**vote**](docs/DefaultApi.md#vote) | **POST** /group/{groupId}/post/{postId}/vote | makes a vote
+*DefaultApi* | [**getGroups**](docs/DefaultApi.md#getGroups) | **GET** /getGroups | gets the groups
+*DefaultApi* | [**getMessagesFromUser**](docs/DefaultApi.md#getMessagesFromUser) | **GET** /user/{userId}/getMessages | get messages
+*DefaultApi* | [**getNotesOfChild**](docs/DefaultApi.md#getNotesOfChild) | **GET** /child/{childId}/getNotes | get all notes
+*DefaultApi* | [**getPost**](docs/DefaultApi.md#getPost) | **GET** /post/{postId} | Gets a post
+*DefaultApi* | [**getUser**](docs/DefaultApi.md#getUser) | **GET** /user/{userId} | Gets a user
+*DefaultApi* | [**likePost**](docs/DefaultApi.md#likePost) | **POST** /post/{postId}/like | makes a like
+*DefaultApi* | [**removeChildFromGroup**](docs/DefaultApi.md#removeChildFromGroup) | **POST** /group/{groupId}/removeChild | removes a child
+*DefaultApi* | [**removeUserFromGroup**](docs/DefaultApi.md#removeUserFromGroup) | **POST** /group/{groupId}/removeUser | removes a user
+*DefaultApi* | [**sendMessageToUser**](docs/DefaultApi.md#sendMessageToUser) | **POST** /user/{userId}/sendMessage | send a message
+*DefaultApi* | [**vote**](docs/DefaultApi.md#vote) | **POST** /post/{postId}/vote | makes a vote
 
 
 ## Documentation for Models
@@ -116,12 +113,15 @@ Class | Method | HTTP request | Description
  - [Child](docs/Child.md)
  - [Comment](docs/Comment.md)
  - [Group](docs/Group.md)
+ - [GroupgroupIdcreatePostPath](docs/GroupgroupIdcreatePostPath.md)
+ - [GroupgroupIdcreatePostPoll](docs/GroupgroupIdcreatePostPoll.md)
  - [Image](docs/Image.md)
  - [Like](docs/Like.md)
  - [Message](docs/Message.md)
  - [Note](docs/Note.md)
  - [Poll](docs/Poll.md)
  - [Post](docs/Post.md)
+ - [Post1](docs/Post1.md)
  - [Presence](docs/Presence.md)
  - [Role](docs/Role.md)
  - [User](docs/User.md)
@@ -130,8 +130,17 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### OauthSecurity
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: /oauth/authorise
+- **Scopes**: 
+  - admin: Admin scope
+  - teacher: Teacher scope
+  - parent: Parent scope
+
 
 ## Recommendation
 
@@ -139,5 +148,5 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Author
 
-you@your-company.com
+dev@kindergarten.com
 

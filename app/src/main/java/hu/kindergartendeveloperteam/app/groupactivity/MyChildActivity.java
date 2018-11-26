@@ -75,6 +75,11 @@ public class MyChildActivity extends AppCompatActivity {
     }
 
     private void fillCalendarPresences() {
+        //get the presences from database, create events, safe events for compare?
+
+
+
+
 
         Event ev1 = new Event(Color.RED, 1542668400000L, "Teachers' Professional Day");
         compactCalendar.addEvent(ev1);

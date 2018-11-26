@@ -19,7 +19,7 @@ import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
 @ApiModel(description = "")
-public class Post {
+public class Post1 {
   
   @SerializedName("content")
   private String content = null;
@@ -81,11 +81,11 @@ public class Post {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Post post = (Post) o;
-    return (this.content == null ? post.content == null : this.content.equals(post.content)) &&
-        (this.poll == null ? post.poll == null : this.poll.equals(post.poll)) &&
-        (this.image == null ? post.image == null : this.image.equals(post.image)) &&
-        (this.path == null ? post.path == null : this.path.equals(post.path));
+    Post1 post1 = (Post1) o;
+    return (this.content == null ? post1.content == null : this.content.equals(post1.content)) &&
+        (this.poll == null ? post1.poll == null : this.poll.equals(post1.poll)) &&
+        (this.image == null ? post1.image == null : this.image.equals(post1.image)) &&
+        (this.path == null ? post1.path == null : this.path.equals(post1.path));
   }
 
   @Override
@@ -101,7 +101,7 @@ public class Post {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Post {\n");
+    sb.append("class Post1 {\n");
     
     sb.append("  content: ").append(content).append("\n");
     sb.append("  poll: ").append(poll).append("\n");

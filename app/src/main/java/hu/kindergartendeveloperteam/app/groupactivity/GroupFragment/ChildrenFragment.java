@@ -7,12 +7,15 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
+import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
 import io.swagger.client.model.Child;
 import io.swagger.client.model.User;
@@ -30,39 +33,31 @@ public class ChildrenFragment extends Fragment {
 
         Children = new ArrayList<>();
 
+
+        /**
         User parent = new User();
-        parent.setId(1);
         parent.setName("Apa");
 
+
         Child c = new Child();
-        c.setId(1);
         c.setName("Gaborka");
-        c.setParent(parent);
+        c.setParentId(1);
 
         Children.add(c);
+*/
 
         //TODO:valós adatokkal feltöltött Children database
 
-/**
+
         try {
 
             User parent = new User();
-            parent.setId(1);
             parent.setName("Apa");
 
             Child c = new Child();
-            c.setId(1);
             c.setName("Gaborka");
-            c.setParent(parent);
 
-            db.createChild(c);
-
-            Child cc = db.getChild(1);
-
-
-            Children.add(cc);
-
-
+            db.addChildToGroup(1, c);
 
         } catch (TimeoutException e) {
             e.printStackTrace();
@@ -73,7 +68,6 @@ public class ChildrenFragment extends Fragment {
         } catch (ApiException e) {
             e.printStackTrace();
         }
-        */
     }
 
     @Nullable
