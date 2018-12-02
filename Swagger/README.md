@@ -101,7 +101,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getNotesOfChild**](docs/DefaultApi.md#getNotesOfChild) | **GET** /child/{childId}/getNotes | get all notes
 *DefaultApi* | [**getPost**](docs/DefaultApi.md#getPost) | **GET** /post/{postId} | Gets a post
 *DefaultApi* | [**getUser**](docs/DefaultApi.md#getUser) | **GET** /user/{userId} | Gets a user
-*DefaultApi* | [**likePost**](docs/DefaultApi.md#likePost) | **POST** /post/{postId}/like | makes a like
+*DefaultApi* | [**likePost**](docs/DefaultApi.md#likePost) | **GET** /post/{postId}/like | makes a like
 *DefaultApi* | [**removeChildFromGroup**](docs/DefaultApi.md#removeChildFromGroup) | **POST** /group/{groupId}/removeChild | removes a child
 *DefaultApi* | [**removeUserFromGroup**](docs/DefaultApi.md#removeUserFromGroup) | **POST** /group/{groupId}/removeUser | removes a user
 *DefaultApi* | [**sendMessageToUser**](docs/DefaultApi.md#sendMessageToUser) | **POST** /user/{userId}/sendMessage | send a message
@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
  - [Note](docs/Note.md)
  - [Post](docs/Post.md)
  - [Post1](docs/Post1.md)
+ - [PostpostIdeditPath](docs/PostpostIdeditPath.md)
  - [Presence](docs/Presence.md)
  - [Role](docs/Role.md)
  - [User](docs/User.md)

@@ -2402,7 +2402,7 @@ public class DefaultApi {
    * @param postId The id of the post
    * @return Boolean
   */
-  public Boolean likePost (Post postId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Boolean likePost (Integer postId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'postId' is set
     if (postId == null) {
@@ -2435,7 +2435,7 @@ public class DefaultApi {
     String[] authNames = new String[] { "OauthSecurity" };
 
     try {
-      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
          return (Boolean) ApiInvoker.deserialize(localVarResponse, "", Boolean.class);
       } else {
@@ -2503,7 +2503,7 @@ public class DefaultApi {
     String[] authNames = new String[] { "OauthSecurity" };
 
     try {
-      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
         new Response.Listener<String>() {
           @Override
           public void onResponse(String localVarResponse) {

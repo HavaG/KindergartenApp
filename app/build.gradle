@@ -35,6 +35,19 @@ android {
 }
 
 dependencies {
+
+    ext {
+        swagger_annotations_version = "1.5.0"
+        gson_version = "2.3.1"
+        httpmime_version = "4.5.2"
+        httpcore_version = "4.4.4"
+        httpclient_version = "4.3.3"
+        volley_version = "1.0.0"
+        junit_version = "4.12"
+        robolectric_version = "3.0"
+        concurrent_unit_version = "0.4.2"
+    }
+
     api fileTree(dir: 'libs', include: ['*.jar'])
     api 'com.google.android.material:material:1.0.0-beta01'
     api 'androidx.appcompat:appcompat:1.0.0'
@@ -51,6 +64,15 @@ dependencies {
     testImplementation "org.robolectric:robolectric:4.0.2"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
+
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "org.apache.httpcomponents:httpcore:$httpcore_version"
+    implementation "org.apache.httpcomponents:httpmime:$httpmime_version"
 }
 repositories {
     mavenCentral()

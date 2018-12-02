@@ -21,16 +21,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.KindergartenPost;
 import io.swagger.client.model.KindergartenUser;
 import io.swagger.client.model.Post;
 
 public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerViewAdapter.MyViewHolder> {
 
     Context mContext;
-    List<Post> mData;
+    List<KindergartenPost> mData;
     DefaultApi db = new DefaultApi();
 
-    public PostRecyclerViewAdapter(Context mContext, List<Post> mData) {
+    public PostRecyclerViewAdapter(Context mContext, List<KindergartenPost> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -47,9 +48,9 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
-        holder.tv_name.setText(mData.get(position).getUserName());
+        holder.tv_name.setText(mData.get(position).getCreator().getName());
         Picasso.get()
-                .load(mData.get(position).getImage())
+                .load(mData.get(position).getImage().getPath())
                 .resize(50, 50)
                 .centerCrop()
                 .into(holder.iv_picture);

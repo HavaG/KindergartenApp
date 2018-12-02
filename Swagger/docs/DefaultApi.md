@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**getNotesOfChild**](DefaultApi.md#getNotesOfChild) | **GET** /child/{childId}/getNotes | get all notes
 [**getPost**](DefaultApi.md#getPost) | **GET** /post/{postId} | Gets a post
 [**getUser**](DefaultApi.md#getUser) | **GET** /user/{userId} | Gets a user
-[**likePost**](DefaultApi.md#likePost) | **POST** /post/{postId}/like | makes a like
+[**likePost**](DefaultApi.md#likePost) | **GET** /post/{postId}/like | makes a like
 [**removeChildFromGroup**](DefaultApi.md#removeChildFromGroup) | **POST** /group/{groupId}/removeChild | removes a child
 [**removeUserFromGroup**](DefaultApi.md#removeUserFromGroup) | **POST** /group/{groupId}/removeUser | removes a user
 [**sendMessageToUser**](DefaultApi.md#sendMessageToUser) | **POST** /user/{userId}/sendMessage | send a message

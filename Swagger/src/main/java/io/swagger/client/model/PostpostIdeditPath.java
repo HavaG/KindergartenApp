@@ -12,34 +12,35 @@
 
 package io.swagger.client.model;
 
+import java.math.BigDecimal;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
 @ApiModel(description = "")
-public class GroupgroupIdcreatePostPath {
+public class PostpostIdeditPath {
   
   @SerializedName("x")
-  private Double x = null;
+  private BigDecimal x = null;
   @SerializedName("y")
-  private Double y = null;
+  private BigDecimal y = null;
 
   /**
    **/
   @ApiModelProperty(value = "")
-  public Double getX() {
+  public BigDecimal getX() {
     return x;
   }
-  public void setX(Double x) {
+  public void setX(BigDecimal x) {
     this.x = x;
   }
 
   /**
    **/
   @ApiModelProperty(value = "")
-  public Double getY() {
+  public BigDecimal getY() {
     return y;
   }
-  public void setY(Double y) {
+  public void setY(BigDecimal y) {
     this.y = y;
   }
 
@@ -52,9 +53,9 @@ public class GroupgroupIdcreatePostPath {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GroupgroupIdcreatePostPath groupgroupIdcreatePostPath = (GroupgroupIdcreatePostPath) o;
-    return (this.x == null ? groupgroupIdcreatePostPath.x == null : this.x.equals(groupgroupIdcreatePostPath.x)) &&
-        (this.y == null ? groupgroupIdcreatePostPath.y == null : this.y.equals(groupgroupIdcreatePostPath.y));
+    PostpostIdeditPath postpostIdeditPath = (PostpostIdeditPath) o;
+    return (this.x == null ? postpostIdeditPath.x == null : this.x.equals(postpostIdeditPath.x)) &&
+        (this.y == null ? postpostIdeditPath.y == null : this.y.equals(postpostIdeditPath.y));
   }
 
   @Override
@@ -68,7 +69,7 @@ public class GroupgroupIdcreatePostPath {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GroupgroupIdcreatePostPath {\n");
+    sb.append("class PostpostIdeditPath {\n");
     
     sb.append("  x: ").append(x).append("\n");
     sb.append("  y: ").append(y).append("\n");

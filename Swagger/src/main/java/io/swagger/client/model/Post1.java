@@ -12,8 +12,8 @@
 
 package io.swagger.client.model;
 
-import io.swagger.client.model.GroupgroupIdcreatePostPath;
 import io.swagger.client.model.GroupgroupIdcreatePostPoll;
+import io.swagger.client.model.PostpostIdeditPath;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +28,7 @@ public class Post1 {
   @SerializedName("image")
   private String image = null;
   @SerializedName("path")
-  private List<GroupgroupIdcreatePostPath> path = null;
+  private List<PostpostIdeditPath> path = null;
 
   /**
    * The text of the post
@@ -65,10 +65,10 @@ public class Post1 {
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<GroupgroupIdcreatePostPath> getPath() {
+  public List<PostpostIdeditPath> getPath() {
     return path;
   }
-  public void setPath(List<GroupgroupIdcreatePostPath> path) {
+  public void setPath(List<PostpostIdeditPath> path) {
     this.path = path;
   }
 

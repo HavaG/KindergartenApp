@@ -117,6 +117,10 @@ public class JsonUtil {
       return new TypeToken<List<Post1>>(){}.getType();
     }
     
+    if ("PostpostIdeditPath".equalsIgnoreCase(className)) {
+      return new TypeToken<List<PostpostIdeditPath>>(){}.getType();
+    }
+    
     if ("Presence".equalsIgnoreCase(className)) {
       return new TypeToken<List<Presence>>(){}.getType();
     }
@@ -197,6 +201,10 @@ public class JsonUtil {
     
     if ("Post1".equalsIgnoreCase(className)) {
       return new TypeToken<Post1>(){}.getType();
+    }
+    
+    if ("PostpostIdeditPath".equalsIgnoreCase(className)) {
+      return new TypeToken<PostpostIdeditPath>(){}.getType();
     }
     
     if ("Presence".equalsIgnoreCase(className)) {
