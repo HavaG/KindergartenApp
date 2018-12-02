@@ -63,8 +63,6 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
             @Override
             public void onClick(View v) {
                 try {
-
-                    //TODO: post.getId()
                     db.likePost(mData.get(position).getId());
 
                 } catch (TimeoutException e) {
@@ -125,6 +123,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
         private TextInputEditText tietf_comment;
         private Button btn_send;
         private Fragment f_map;
+
         /*
         commentRecycleView
         answersRecycleView
@@ -141,6 +140,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
             btn_send = (Button) itemView.findViewById(R.id.sendBtn);
             btn_like = (Button) itemView.findViewById(R.id.LikeBtn);
             tv_likes = (TextView) itemView.findViewById(R.id.like_text);
+            f_map = (Fragment) itemView.findViewById(R.id.map);
 
             /*
             answersRecycleView

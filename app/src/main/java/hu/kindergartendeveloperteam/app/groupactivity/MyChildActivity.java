@@ -79,21 +79,7 @@ public class MyChildActivity extends AppCompatActivity {
         compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
-                Context context = getApplicationContext();
-                boolean hasPresence = false;
 
-                for(int i = 0; i < presences.size(); i++){
-                    //TODO: ez itt tuti nem jó, de nem tudom mik a visszatérési értékek
-                    if(presences.get(i).getDate().equals(dateClicked.toString())) {
-                        hasPresence = true;
-                    }
-                }
-
-                if (hasPresence) {
-                    Toast.makeText(context, "Your children was not in Kindergarten", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(context, "No Events Planned for that day", Toast.LENGTH_SHORT).show();
-                }
             }
 
             @Override
@@ -118,7 +104,7 @@ public class MyChildActivity extends AppCompatActivity {
 
             for(int i = 0; i < presences.size(); i++){
                 long time = 0;
-                //TODO: presence to millis
+                //TODO: presence to millis (lehet h így jó)
 
                 time = dateFormatMonth.parse(presences.get(i).getDate()).getTime();
                 Event e = new Event(Color.RED, time, "Elivleg ez nem is látszik");

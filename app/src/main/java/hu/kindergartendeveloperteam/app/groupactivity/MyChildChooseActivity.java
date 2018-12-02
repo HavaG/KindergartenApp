@@ -16,6 +16,8 @@ import java.util.concurrent.TimeoutException;
 import androidx.appcompat.app.AppCompatActivity;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.Group;
+import io.swagger.client.model.KindergartenChild;
 import io.swagger.client.model.KindergartenChild;
 import io.swagger.client.model.KindergartenUser;
 
@@ -23,6 +25,7 @@ public class MyChildChooseActivity extends AppCompatActivity {
 
     DefaultApi db = new DefaultApi();
     List<KindergartenChild> child = new ArrayList<>();
+    public static String CHILD_ID = "child_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +34,9 @@ public class MyChildChooseActivity extends AppCompatActivity {
 
 
         try {
-            //TODO: azt kell lekérni aki be van jelentkezve
-            KindergartenUser user = db.getUser(0);
+            //TODO: a bejelentkezett user gyerekeit lekérni
+            List<Group> groups = db.getGroups();
 
-            //TODO: a bejelentkezett user gyerekeit kell lekérni
-
-            if (user != null)
-                child = user.getChildren();
 
             //List<KindergartenChild> children =  user.getChildren();
             //child.add(gyerek1);
@@ -71,7 +70,7 @@ public class MyChildChooseActivity extends AppCompatActivity {
                     final int childId = child.get(id_).getId();
 
                     intent = new Intent(getBaseContext(), MyChildActivity.class);
-                    intent.putExtra("child_id", childId);
+                    intent.putExtra(CHILD_ID, childId);
 
                     startActivity(intent);
                 }
