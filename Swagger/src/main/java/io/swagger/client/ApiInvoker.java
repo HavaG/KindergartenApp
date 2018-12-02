@@ -55,6 +55,8 @@ import io.swagger.client.request.PutRequest;
 import io.swagger.client.request.DeleteRequest;
 import io.swagger.client.request.PatchRequest;
 
+import hu.kindergartendeveloperteam.app.groupactivity.authentication;
+
 public class ApiInvoker {
   private static ApiInvoker INSTANCE;
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
@@ -204,7 +206,7 @@ public class ApiInvoker {
     // Setup authentications (key: authentication name, value: authentication).
     INSTANCE.authentications = new HashMap<String, Authentication>();
     // TODO: comment out below as OAuth does not exist
-    //INSTANCE.authentications.put("OauthSecurity", new OAuth());
+    INSTANCE.authentications.put("OauthSecurity", new OAuth());
     // Prevent the authentications from being modified.
     INSTANCE.authentications = Collections.unmodifiableMap(INSTANCE.authentications);
   }

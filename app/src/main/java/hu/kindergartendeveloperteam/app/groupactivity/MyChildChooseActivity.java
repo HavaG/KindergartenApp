@@ -16,6 +16,8 @@ import java.util.concurrent.TimeoutException;
 import androidx.appcompat.app.AppCompatActivity;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.KindergartenChild;
+import io.swagger.client.model.KindergartenUser;
 
 public class MyChildChooseActivity extends AppCompatActivity {
 
