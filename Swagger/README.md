@@ -79,7 +79,7 @@ public class DefaultApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/api/*
+All URIs are relative to *http://kindergarten.westeurope.cloudapp.azure.com/api/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
  - [Image](docs/Image.md)
  - [KindergartenChild](docs/KindergartenChild.md)
  - [KindergartenPoll](docs/KindergartenPoll.md)
+ - [KindergartenPost](docs/KindergartenPost.md)
  - [KindergartenUser](docs/KindergartenUser.md)
  - [Like](docs/Like.md)
  - [Message](docs/Message.md)

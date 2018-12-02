@@ -89,6 +89,10 @@ public class JsonUtil {
       return new TypeToken<List<KindergartenPoll>>(){}.getType();
     }
     
+    if ("KindergartenPost".equalsIgnoreCase(className)) {
+      return new TypeToken<List<KindergartenPost>>(){}.getType();
+    }
+    
     if ("KindergartenUser".equalsIgnoreCase(className)) {
       return new TypeToken<List<KindergartenUser>>(){}.getType();
     }
@@ -165,6 +169,10 @@ public class JsonUtil {
     
     if ("KindergartenPoll".equalsIgnoreCase(className)) {
       return new TypeToken<KindergartenPoll>(){}.getType();
+    }
+    
+    if ("KindergartenPost".equalsIgnoreCase(className)) {
+      return new TypeToken<KindergartenPost>(){}.getType();
     }
     
     if ("KindergartenUser".equalsIgnoreCase(className)) {

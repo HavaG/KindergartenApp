@@ -19,7 +19,6 @@ allprojects {
 
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 android {
@@ -74,7 +73,6 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.robolectric:robolectric:${robolectric_version}"
     testImplementation "net.jodah:concurrentunit:${concurrent_unit_version}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 afterEvaluate {
@@ -96,7 +94,4 @@ task sourcesJar(type: Jar) {
 
 artifacts {
     archives sourcesJar
-}
-repositories {
-    mavenCentral()
 }

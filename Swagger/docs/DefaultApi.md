@@ -1,6 +1,6 @@
 # DefaultApi
 
-All URIs are relative to *http://localhost:8080/api/*
+All URIs are relative to *http://kindergarten.westeurope.cloudapp.azure.com/api/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -723,7 +723,7 @@ Name | Type | Description  | Notes
 
 <a name="getPost"></a>
 # **getPost**
-> Post getPost(postId)
+> KindergartenPost getPost(postId)
 
 Gets a post
 
@@ -737,7 +737,7 @@ Gets a post of the group
 DefaultApi apiInstance = new DefaultApi();
 Integer postId = 56; // Integer | The id of the post
 try {
-    Post result = apiInstance.getPost(postId);
+    KindergartenPost result = apiInstance.getPost(postId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getPost");
@@ -753,7 +753,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Post**](Post.md)
+[**KindergartenPost**](KindergartenPost.md)
 
 ### Authorization
 

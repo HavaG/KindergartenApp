@@ -13,9 +13,9 @@
 package io.swagger.client.model;
 
 import io.swagger.client.model.KindergartenChild;
+import io.swagger.client.model.KindergartenPost;
 import io.swagger.client.model.KindergartenUser;
 import io.swagger.client.model.Message;
-import io.swagger.client.model.Post;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +28,7 @@ public class Group {
   @SerializedName("name")
   private String name = null;
   @SerializedName("posts")
-  private List<Post> posts = null;
+  private List<KindergartenPost> posts = null;
   @SerializedName("teachers")
   private List<KindergartenUser> teachers = null;
   @SerializedName("children")
@@ -62,10 +62,10 @@ public class Group {
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<Post> getPosts() {
+  public List<KindergartenPost> getPosts() {
     return posts;
   }
-  public void setPosts(List<Post> posts) {
+  public void setPosts(List<KindergartenPost> posts) {
     this.posts = posts;
   }
 

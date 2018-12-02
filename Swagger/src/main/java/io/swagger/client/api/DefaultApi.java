@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import io.swagger.client.model.Child;
 import io.swagger.client.model.Group;
 import io.swagger.client.model.KindergartenChild;
+import io.swagger.client.model.KindergartenPost;
 import io.swagger.client.model.KindergartenUser;
 import io.swagger.client.model.Message;
 import io.swagger.client.model.Note;
@@ -45,7 +46,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class DefaultApi {
-  String basePath = "http://localhost:8080/api/";
+  String basePath = "http://kindergarten.westeurope.cloudapp.azure.com/api/";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -2145,9 +2146,9 @@ public class DefaultApi {
   * Gets a post
   * Gets a post of the group
    * @param postId The id of the post
-   * @return Post
+   * @return KindergartenPost
   */
-  public Post getPost (Integer postId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public KindergartenPost getPost (Integer postId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'postId' is set
     if (postId == null) {
@@ -2182,7 +2183,7 @@ public class DefaultApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Post) ApiInvoker.deserialize(localVarResponse, "", Post.class);
+         return (KindergartenPost) ApiInvoker.deserialize(localVarResponse, "", KindergartenPost.class);
       } else {
          return null;
       }
@@ -2208,7 +2209,7 @@ public class DefaultApi {
    * Gets a post of the group
    * @param postId The id of the post
   */
-  public void getPost (Integer postId, final Response.Listener<Post> responseListener, final Response.ErrorListener errorListener) {
+  public void getPost (Integer postId, final Response.Listener<KindergartenPost> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'postId' is set
@@ -2253,7 +2254,7 @@ public class DefaultApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Post) ApiInvoker.deserialize(localVarResponse,  "", Post.class));
+              responseListener.onResponse((KindergartenPost) ApiInvoker.deserialize(localVarResponse,  "", KindergartenPost.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
