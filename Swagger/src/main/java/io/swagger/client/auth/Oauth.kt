@@ -1,4 +1,4 @@
-package hu.kindergartendeveloperteam.app.groupactivity.authentication
+package io.swagger.client.auth
 
 
 
@@ -6,8 +6,6 @@ import android.util.Base64
 import android.util.Log
 import com.google.gson.annotations.SerializedName
 import io.swagger.client.Pair
-import io.swagger.client.auth.AuthData
-import io.swagger.client.auth.Authentication
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -20,7 +18,7 @@ import retrofit2.http.Header
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-class Oauth() : Authentication {
+class Oauth : Authentication {
 
     private val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("kindergarten.westeurope.cloudapp.azure.com:3000")
