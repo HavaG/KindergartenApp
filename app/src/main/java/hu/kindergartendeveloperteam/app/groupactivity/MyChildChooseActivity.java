@@ -9,27 +9,50 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import androidx.appcompat.app.AppCompatActivity;
+import io.swagger.client.ApiException;
+import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.Child;
+import io.swagger.client.model.User;
 
 public class MyChildChooseActivity extends AppCompatActivity {
+
+    DefaultApi db;
+    final ArrayList<Child> child = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_child_choose_activity);
 
-        //TODO: amennyi adat tartozik a felhasználóhoz, annyi gyereket renderel ki
 
-        final ArrayList<String> names = new ArrayList<>();
-        names.add("Bélácska");
-        names.add("Andriska");
+        try {
+            //TODO: azt kell lekérni aki be van jelentkezve
+            User user = db.getUser(0);
+
+            //TODO: a bejelentkezett user gyerekeit kell lekérni
+            user.getChildren();
+            child.add(gyerek1);
+            child.add(gyerek2);
+
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
 
 
-        for (int i = 0; i < names.size(); i++) {
+        for (int i = 0; i < child.size(); i++) {
             LayoutInflater layoutInflater =(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final Button myButton = (Button) layoutInflater.inflate(R.layout.my_child_choose_btn, null);
-            myButton.setText(names.get(i));
+            myButton.setText(child.get(i).getName());
             myButton.setId(i);
             final int id_ = myButton.getId();
 
@@ -40,10 +63,10 @@ public class MyChildChooseActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent;
 
-                    final String childName = names.get(id_);
+                    final int childId = child.get(id_).getId();
 
                     intent = new Intent(getBaseContext(), MyChildActivity.class);
-                    intent.putExtra("child_name", childName);
+                    intent.putExtra("child_id", childId);
 
                     startActivity(intent);
                 }

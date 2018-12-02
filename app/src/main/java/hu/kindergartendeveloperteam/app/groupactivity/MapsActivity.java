@@ -25,8 +25,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
+
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
+import io.swagger.client.ApiException;
+import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.Post;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -34,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     AutoCompleteTextView textIn;
     LinearLayout container;
     private final int PLACE_PICKER_REQUEST = 1;
+    private DefaultApi db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +77,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         postBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //TODO: create maps post and save
+
+                try {
+                    //TODO: set markers + names, id???
+                    Post  newPost = new Post();
+                    newPost.setContent(textIn.getText().toString());
+                    db.createPost(0, newPost);
+
+
+                } catch (TimeoutException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                }
+
+
                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

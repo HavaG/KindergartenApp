@@ -19,7 +19,7 @@ public class GroupChooseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_choose_activity);
 
-        //TODO: amennyi adat tartozik a felhasználóhoz, annyi gonbor renderel ki a csoportok nevével
+        //TODO: amennyi adat tartozik a felhasználóhoz, annyi gonbor renderel ki a csoportok nevével. Ezeknek a nevét jeleníti meg. Mikor a felhasználó rákattint, tovább dobja a groupId-t
 
         final ArrayList<String> names = new ArrayList<>();
         names.add("Kiskacsa");
@@ -43,6 +43,7 @@ public class GroupChooseActivity extends AppCompatActivity {
 
                     final String groupName = names.get(id_);
                     intent.putExtra("group_name", groupName);
+                    intent.putExtra("groupId", 1);
 
                     String open = getIntent().getStringExtra("open");
                     if(open.equals("group")){

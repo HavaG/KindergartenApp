@@ -79,7 +79,7 @@ public class DefaultApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://http://kindergarten.westeurope.cloudapp.azure.com/api/*
+All URIs are relative to *http://kindergarten.westeurope.cloudapp.azure.com/api/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -130,17 +130,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
+All endpoints do not require authorization.
 Authentication schemes defined for the API:
-### OauthSecurity
-
-- **Type**: OAuth
-- **Flow**: accessCode
-- **Authorization URL**: /oauth/authorise
-- **Scopes**: 
-  - admin: Admin scope
-  - teacher: Teacher scope
-  - parent: Parent scope
-
 
 ## Recommendation
 

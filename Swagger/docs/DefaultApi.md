@@ -1,6 +1,6 @@
 # DefaultApi
 
-All URIs are relative to *http://http://kindergarten.westeurope.cloudapp.azure.com/api/*
+All URIs are relative to *http://kindergarten.westeurope.cloudapp.azure.com/api/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -66,7 +66,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,7 +110,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -154,7 +154,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -198,7 +198,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -371,7 +371,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -415,7 +415,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -459,7 +459,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -503,7 +503,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -546,7 +546,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -628,7 +628,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -843,7 +843,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -887,7 +887,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -931,7 +931,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -975,7 +975,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 
@@ -1019,7 +1019,7 @@ null (empty response body)
 
 ### Authorization
 
-[OauthSecurity](../README.md#OauthSecurity)
+No authorization required
 
 ### HTTP request headers
 

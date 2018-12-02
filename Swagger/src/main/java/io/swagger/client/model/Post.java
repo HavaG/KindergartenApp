@@ -47,7 +47,7 @@ public class Post {
   public GroupgroupIdcreatePostPoll getPoll() {
     return poll;
   }
-  public void setPoll(GroupgroupIdcreatePostPoll poll) {
+  public void setPoll(Poll poll) {
     this.poll = poll;
   }
 

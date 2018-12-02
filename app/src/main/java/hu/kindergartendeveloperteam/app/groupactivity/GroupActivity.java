@@ -28,11 +28,12 @@ public class GroupActivity extends AppCompatActivity {
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        //TODO: ha csak message, akkor tanárokat és szülőket ír ki (viszont ebből az összes kéne)
         Boolean onlyMessage = getIntent().getBooleanExtra("only_message", false);
 
-        //TODO: ehhez a csoporthoz tartozó dolgokat kell kiírni
+        //TODO: ehhez a csoporthoz tartozó dolgokat kell kiírni (ha az id = 0 akkor csak chat, de kell az összes user)
         String groupName = getIntent().getStringExtra("group_name");
+        int  groupId = getIntent().getIntExtra("groupId", 0);
+
 
         if(onlyMessage){
             adapter.AddFragment(new TeacherFragment(), "Teachers");

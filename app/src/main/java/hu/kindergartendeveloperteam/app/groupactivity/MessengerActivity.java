@@ -15,7 +15,7 @@ public class MessengerActivity extends AppCompatActivity {
         setContentView(R.layout.messenger_activity);
 
 
-        //TODO: create messenger fragment
+        //TODO: create a chat --> ez még messze van, majd a socket dolog
 
 
         Button newMessageBtn = (Button) findViewById(R.id.newMessageBtn);

@@ -25,7 +25,7 @@ public class ParentsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //TODO:valós adatokkal feltöltött Children database
+        //TODO:valós adatokkal feltöltött Parents database
 
         Parents = new ArrayList<>();
 

@@ -33,7 +33,6 @@ public class ChildrenFragment extends Fragment {
 
         Children = new ArrayList<>();
 
-
         /**
         User parent = new User();
         parent.setName("Apa");

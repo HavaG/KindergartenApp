@@ -25,7 +25,7 @@ public class TeacherFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //TODO:valós adatokkal feltöltött Children database
+        //TODO: valós adatokkal feltöltött Teachers database
 
         Teachers = new ArrayList<>();
 

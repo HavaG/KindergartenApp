@@ -7,25 +7,38 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import androidx.appcompat.app.AppCompatActivity;
+import io.swagger.client.ApiException;
+import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.Post;
 
 public class PostActivity extends AppCompatActivity {
 
     public static final int IMAGE_GALLERY_REQUEST = 20;
     public ImageView imagePicture;
+    TextInputEditText textIn;
+    DefaultApi db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_create_activity);
+
+        textIn = (TextInputEditText)findViewById(R.id.PostTextInputEditText);
 
         imagePicture = (ImageView) findViewById(R.id.photoPreview);
 
@@ -54,7 +67,22 @@ public class PostActivity extends AppCompatActivity {
     }
 
     public void createPost() {
-        //TODO: create post, db add post. Goes to the created post.
+        try {
+            Post newPost = new Post();
+            newPost.setContent(textIn.getText().toString());
+            //TODO:imagePicture.toString? (Bitmap?)
+            newPost.setImage(imagePicture.toString());
+            //TODO: post id???
+            db.createPost(0, newPost);
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onImageGalleryClicked(View v)
