@@ -70,10 +70,11 @@ public class PostActivity extends AppCompatActivity {
         try {
             Post newPost = new Post();
             newPost.setContent(textIn.getText().toString());
-            //TODO:imagePicture.toString? (Bitmap?)
+            //TODO:imagePicture.toString?
             newPost.setImage(imagePicture.toString());
-            //TODO: post id???
-            db.createPost(0, newPost);
+
+            int group_id = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
+            db.createPost(group_id, newPost);
         } catch (TimeoutException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

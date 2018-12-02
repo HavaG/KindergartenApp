@@ -55,17 +55,15 @@ public class PollActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                int group_id = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
+
                 try {
-                    //TODO: SetId???
                     Post newPost = new Post();
-                    KindergartenPoll newPoll = new KindergartenPoll();
-                    newPoll.setQuestion(textIn.getText().toString());
-                    newPoll.setOptions(answers);
                     GroupgroupIdcreatePostPoll pollWorkaround = new GroupgroupIdcreatePostPoll();
-                    pollWorkaround.setAnswers(newPoll.getOptions());
-                    pollWorkaround.setQuestion(newPoll.getQuestion());
+                    pollWorkaround.setAnswers(answers);
+                    pollWorkaround.setQuestion(textIn.getText().toString());
                     newPost.setPoll(pollWorkaround);
-                    db.createPost(0, newPost);
+                    db.createPost(group_id, newPost);
                 } catch (TimeoutException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
