@@ -18,22 +18,21 @@ import hu.kindergartendeveloperteam.app.groupactivity.GroupActivity;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
-import io.swagger.client.model.Child;
 import io.swagger.client.model.KindergartenChild;
-import io.swagger.client.model.User;
 
 public class ChildrenFragment extends Fragment {
 
-    View v;
+    private View v;
     private RecyclerView myRecycleView;
     private List<KindergartenChild> Children;
-    DefaultApi db = new DefaultApi();
+    private DefaultApi db = new DefaultApi();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Children = new ArrayList<>();
+        assert getArguments() != null;
         int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
 
         try {
@@ -56,7 +55,7 @@ public class ChildrenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.user_fragment, container, false);
+        v = inflater.inflate(R.layout.group_user_fragment, container, false);
         myRecycleView = (RecyclerView) v.findViewById(R.id.userRecycleView);
         ChildrenRecyclerViewAdapter recycleAdapter = new ChildrenRecyclerViewAdapter(getContext(),Children);
         myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));

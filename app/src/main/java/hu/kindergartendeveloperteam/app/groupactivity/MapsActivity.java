@@ -25,6 +25,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -34,6 +35,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.GroupgroupIdcreatePostPath;
+import io.swagger.client.model.KindergartenPost;
 import io.swagger.client.model.Post;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -87,13 +90,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Post  newPost = new Post();
                     newPost.setContent(textIn.getText().toString());
 
-                    //TODO: Post.AddMarker()
+                    List<GroupgroupIdcreatePostPath> path = new ArrayList<>();
+
                     for(int i = 0; i < markers.size(); i++){
-                        newPost.addMarker(markers.get(i));
+                        GroupgroupIdcreatePostPath e = new GroupgroupIdcreatePostPath();
+                        e.setX(markers.get(i).getPosition().latitude);
+                        e.setY(markers.get(i).getPosition().longitude);
+                        path.add(e);
                     }
+                    newPost.setPath(path);
 
                     db.createPost(groupId, newPost);
-
 
                 } catch (TimeoutException e) {
                     e.printStackTrace();
