@@ -2402,7 +2402,7 @@ public class DefaultApi {
    * @param postId The id of the post
    * @return Boolean
   */
-  public Boolean likePost (Integer postId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Boolean likePost (Post postId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'postId' is set
     if (postId == null) {

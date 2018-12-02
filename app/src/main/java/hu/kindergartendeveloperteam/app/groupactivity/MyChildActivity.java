@@ -33,10 +33,10 @@ import io.swagger.client.model.Presence;
 public class MyChildActivity extends AppCompatActivity {
 
     CompactCalendarView compactCalendar;
-    private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
+    SimpleDateFormat dateFormatMonth = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     KindergartenChild child;
     List<Note> notes;
-    DefaultApi db;
+    DefaultApi db = new DefaultApi();
     List<Presence> presences;
 
     @Override
@@ -44,12 +44,11 @@ public class MyChildActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_child_activity);
 
-        int childId = getIntent().getIntExtra("child_id", 0);
+        int childId = getIntent().getIntExtra(MyChildChooseActivity.CHILD_ID, 0);
 
         try {
 
             child = db.getChild(childId);
-            //TODO: getPresences, getNotes wtf
             presences = child.getPresences();
             notes = child.getNotes();
 
@@ -81,7 +80,6 @@ public class MyChildActivity extends AppCompatActivity {
             @Override
             public void onDayClick(Date dateClicked) {
                 Context context = getApplicationContext();
-
                 boolean hasPresence = false;
 
                 for(int i = 0; i < presences.size(); i++){
@@ -121,9 +119,8 @@ public class MyChildActivity extends AppCompatActivity {
             for(int i = 0; i < presences.size(); i++){
                 long time = 0;
                 //TODO: presence to millis
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                time = sdf.parse(presences.get(i).getDate()).getTime();
+                time = dateFormatMonth.parse(presences.get(i).getDate()).getTime();
                 Event e = new Event(Color.RED, time, "Elivleg ez nem is látszik");
                 compactCalendar.addEvent(e);
             }
