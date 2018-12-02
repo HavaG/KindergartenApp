@@ -1,6 +1,6 @@
 # DefaultApi
 
-All URIs are relative to *http://kindergarten.westeurope.cloudapp.azure.com/api/*
+All URIs are relative to *http://localhost:8080/api/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
