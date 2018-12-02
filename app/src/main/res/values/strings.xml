@@ -15,7 +15,7 @@
     <string name="example_name">Full Name</string>
     <string name="LikeBtnLabel">Like</string>
     <string name="hint_comment">Your comment...</string>
-    <string name="like_text">Already %d people liked it.</string>
+    <string name="like_text">Already %s people liked it.</string>
     <string name="question">Szerintetek A vagy B?</string>
     <string name="example_answer">Legyen az A</string>
     <string name="main">Ez a nyitókép</string>

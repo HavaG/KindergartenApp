@@ -79,7 +79,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
             }
         });
         int likesCount = mData.get(position).getLikes().size();
-        holder.tv_likes.setText(mContext.getString(R.string.like_text, likesCount));
+        holder.tv_likes.setText(mContext.getString(R.string.like_text, "" + likesCount));
 
         String comment = "";
         if(holder.tietf_comment.getText() != null) {
@@ -125,9 +125,10 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
         private TextInputEditText tietf_comment;
         private Button btn_send;
         private Fragment f_map;
-
+        /*
         commentRecycleView
         answersRecycleView
+        */
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -141,8 +142,10 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
             btn_like = (Button) itemView.findViewById(R.id.LikeBtn);
             tv_likes = (TextView) itemView.findViewById(R.id.like_text);
 
+            /*
             answersRecycleView
             commentRecycleView
+            */
         }
     }
 }
