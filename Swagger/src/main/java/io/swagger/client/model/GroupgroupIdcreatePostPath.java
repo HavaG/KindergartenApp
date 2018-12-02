@@ -30,7 +30,7 @@ public class GroupgroupIdcreatePostPath {
   public BigDecimal getX() {
     return x;
   }
-  public void setX(BigDecimal x) {
+  public void setX(double x) {
     this.x = x;
   }
 
@@ -40,7 +40,7 @@ public class GroupgroupIdcreatePostPath {
   public BigDecimal getY() {
     return y;
   }
-  public void setY(BigDecimal y) {
+  public void setY(double y) {
     this.y = y;
   }
 
