@@ -25,6 +25,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -40,17 +42,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     AutoCompleteTextView textIn;
     LinearLayout container;
     private final int PLACE_PICKER_REQUEST = 1;
-    private DefaultApi db;
+    private DefaultApi db = new DefaultApi();
+    private List<Marker> markers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maps_activity);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        final SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         assert mapFragment != null;
         mapFragment.getMapAsync(this);
+        markers = new ArrayList<>();
 
         textIn = findViewById(R.id.textin);
 
@@ -79,10 +83,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View v) {
 
                 try {
-                    //TODO: set markers + names, id???
+                    int groupId = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
                     Post  newPost = new Post();
                     newPost.setContent(textIn.getText().toString());
-                    db.createPost(0, newPost);
+
+                    //TODO: Post.AddMarker()
+                    for(int i = 0; i < markers.size(); i++){
+                        newPost.addMarker(markers.get(i));
+                    }
+
+                    db.createPost(groupId, newPost);
 
 
                 } catch (TimeoutException e) {
@@ -111,6 +121,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 LatLng latLng = place.getLatLng();
                 final Marker m = mMap.addMarker(new MarkerOptions().position(latLng).title(place.getName().toString()));
+                markers.add(m);
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
                 LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

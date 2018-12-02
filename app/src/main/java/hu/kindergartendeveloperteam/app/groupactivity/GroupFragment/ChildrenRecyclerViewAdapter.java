@@ -12,13 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
 import io.swagger.client.model.Child;
+import io.swagger.client.model.KindergartenChild;
 
 public class ChildrenRecyclerViewAdapter extends RecyclerView.Adapter<ChildrenRecyclerViewAdapter.MyViewHolder> {
 
     Context mContext;
-    List<Child> mData;
+    List<KindergartenChild> mData;
 
-    public ChildrenRecyclerViewAdapter(Context mContext, List<Child> mData) {
+    public ChildrenRecyclerViewAdapter(Context mContext, List<KindergartenChild> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }

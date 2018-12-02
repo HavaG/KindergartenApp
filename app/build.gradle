@@ -50,6 +50,7 @@ dependencies {
     implementation project(path: ':Swagger')
     testImplementation "org.robolectric:robolectric:4.0.2"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 repositories {
     mavenCentral()

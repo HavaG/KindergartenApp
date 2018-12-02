@@ -9,41 +9,58 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import androidx.appcompat.app.AppCompatActivity;
+import io.swagger.client.ApiException;
+import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.Group;
 
 public class GroupChooseActivity extends AppCompatActivity {
+
+    DefaultApi db = new DefaultApi();
+    public static String GROUP_ID = "group_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_choose_activity);
 
-        //TODO: amennyi adat tartozik a felhasználóhoz, annyi gonbor renderel ki a csoportok nevével. Ezeknek a nevét jeleníti meg. Mikor a felhasználó rákattint, tovább dobja a groupId-t
+        List<Group> groups = new ArrayList<>();
 
-        final ArrayList<String> names = new ArrayList<>();
-        names.add("Kiskacsa");
-        names.add("Gőzmozdony");
-        names.add("Szivárvány");
+        try {
+            groups = db.getGroups();
 
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
 
-        for (int i = 0; i < names.size(); i++) {
+        for (int i = 0; i < groups.size(); i++) {
             LayoutInflater layoutInflater =(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final Button myButton = (Button) layoutInflater.inflate(R.layout.group_choose_btn, null);
-            myButton.setText(names.get(i));
+            myButton.setText(groups.get(i).getName());
             myButton.setId(i);
             final int id_ = myButton.getId();
 
             LinearLayout layout = findViewById(R.id.groupLayoutBtn);
             layout.addView(myButton);
 
+            final List<Group> finalGroups = groups;
             myButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     Intent intent = new Intent(getBaseContext(), MainActivity.class);
 
-                    final String groupName = names.get(id_);
+                    String groupName = finalGroups.get(id_).getName();
                     intent.putExtra("group_name", groupName);
-                    intent.putExtra("groupId", 1);
+                    intent.putExtra(GROUP_ID, finalGroups.get(id_).getId());
 
                     String open = getIntent().getStringExtra("open");
                     if(open.equals("group")){

@@ -7,28 +7,48 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import hu.kindergartendeveloperteam.app.groupactivity.GroupActivity;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
+import io.swagger.client.ApiException;
+import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.KindergartenChild;
+import io.swagger.client.model.KindergartenUser;
 import io.swagger.client.model.User;
 
 public class TeacherFragment extends Fragment {
 
     View v;
     private RecyclerView myRecycleView;
-    private List<User> Teachers;
+    private List<KindergartenUser> Teachers;
+    DefaultApi db = new DefaultApi();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //TODO: valós adatokkal feltöltött Teachers database
-
         Teachers = new ArrayList<>();
 
+        assert getArguments() != null;
+        int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
+
+        try {
+            Teachers = db.getGroup(groupId).getTeachers();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
     }
 
     @Nullable

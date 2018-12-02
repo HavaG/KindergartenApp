@@ -14,17 +14,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import hu.kindergartendeveloperteam.app.groupactivity.GroupActivity;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
 import io.swagger.client.model.Child;
+import io.swagger.client.model.KindergartenChild;
 import io.swagger.client.model.User;
 
 public class ChildrenFragment extends Fragment {
 
     View v;
     private RecyclerView myRecycleView;
-    private List<Child> Children;
+    private List<KindergartenChild> Children;
     DefaultApi db = new DefaultApi();
 
     @Override
@@ -32,31 +34,11 @@ public class ChildrenFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         Children = new ArrayList<>();
-
-        /**
-        User parent = new User();
-        parent.setName("Apa");
-
-
-        Child c = new Child();
-        c.setName("Gaborka");
-        c.setParentId(1);
-
-        Children.add(c);
-*/
-
-        //TODO:valós adatokkal feltöltött Children database
-
+        int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
 
         try {
 
-            User parent = new User();
-            parent.setName("Apa");
-
-            Child c = new Child();
-            c.setName("Gaborka");
-
-            db.addChildToGroup(1, c);
+            Children = db.getGroup(groupId).getChildren();
 
         } catch (TimeoutException e) {
             e.printStackTrace();

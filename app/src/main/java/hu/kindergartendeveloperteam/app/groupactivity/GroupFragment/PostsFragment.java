@@ -14,7 +14,7 @@ public class PostsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.group_posts_fragment, container, false);
-
+        //TODO: mivan ha maps???
         //TODO: post kirajzolása (csak az a része ami kell)
 
         return rootView;

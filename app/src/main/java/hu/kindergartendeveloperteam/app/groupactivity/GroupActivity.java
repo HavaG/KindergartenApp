@@ -17,6 +17,7 @@ public class GroupActivity extends AppCompatActivity {
     private ViewPagerAdapter adapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    public static String GROUP_ID = "gruop_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,20 +31,29 @@ public class GroupActivity extends AppCompatActivity {
 
         Boolean onlyMessage = getIntent().getBooleanExtra("only_message", false);
 
-        //TODO: ehhez a csoporthoz tartozó dolgokat kell kiírni (ha az id = 0 akkor csak chat, de kell az összes user)
-        String groupName = getIntent().getStringExtra("group_name");
         int  groupId = getIntent().getIntExtra("groupId", 0);
+        Bundle b = new Bundle();
+        b.putInt(GROUP_ID, groupId);
 
+        TeacherFragment tf = new TeacherFragment();
+        ParentsFragment pf = new ParentsFragment();
+        PostsFragment pof = new PostsFragment();
+        ChildrenFragment cf = new ChildrenFragment();
+
+        tf.setArguments(b);
+        pf.setArguments(b);
+        pof.setArguments(b);
+        cf.setArguments(b);
 
         if(onlyMessage){
-            adapter.AddFragment(new TeacherFragment(), "Teachers");
-            adapter.AddFragment(new ParentsFragment(), "Parents");
+            adapter.AddFragment(tf, "Teachers");
+            adapter.AddFragment(pf, "Parents");
         }
         else{
-            adapter.AddFragment(new PostsFragment(), "Posts");
-            adapter.AddFragment(new TeacherFragment(), "Teachers");
-            adapter.AddFragment(new ParentsFragment(), "Parents");
-            adapter.AddFragment(new ChildrenFragment(), "Children");
+            adapter.AddFragment(pof, "Posts");
+            adapter.AddFragment(tf, "Teachers");
+            adapter.AddFragment(pf, "Parents");
+            adapter.AddFragment(cf, "Children");
         }
 
         viewPager.setAdapter(adapter);
