@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -16,12 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
 import io.swagger.client.model.Child;
+import io.swagger.client.model.KindergartenChild;
+import io.swagger.client.model.KindergartenUser;
 import io.swagger.client.model.User;
 
 public class MyChildChooseActivity extends AppCompatActivity {
 
-    DefaultApi db;
-    final ArrayList<Child> child = new ArrayList<>();
+    DefaultApi db = new DefaultApi();
+    List<KindergartenChild> child = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +34,16 @@ public class MyChildChooseActivity extends AppCompatActivity {
 
         try {
             //TODO: azt kell lekérni aki be van jelentkezve
-            User user = db.getUser(0);
+            KindergartenUser user = db.getUser(0);
 
             //TODO: a bejelentkezett user gyerekeit kell lekérni
-            user.getChildren();
-            child.add(gyerek1);
-            child.add(gyerek2);
+
+            if (user != null)
+                child = user.getChildren();
+
+            //List<KindergartenChild> children =  user.getChildren();
+            //child.add(gyerek1);
+            //child.add(gyerek2);
 
         } catch (TimeoutException e) {
             e.printStackTrace();

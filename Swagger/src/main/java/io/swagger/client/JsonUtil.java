@@ -81,6 +81,18 @@ public class JsonUtil {
       return new TypeToken<List<Image>>(){}.getType();
     }
     
+    if ("KindergartenChild".equalsIgnoreCase(className)) {
+      return new TypeToken<List<KindergartenChild>>(){}.getType();
+    }
+    
+    if ("KindergartenPoll".equalsIgnoreCase(className)) {
+      return new TypeToken<List<KindergartenPoll>>(){}.getType();
+    }
+    
+    if ("KindergartenUser".equalsIgnoreCase(className)) {
+      return new TypeToken<List<KindergartenUser>>(){}.getType();
+    }
+    
     if ("Like".equalsIgnoreCase(className)) {
       return new TypeToken<List<Like>>(){}.getType();
     }
@@ -91,10 +103,6 @@ public class JsonUtil {
     
     if ("Note".equalsIgnoreCase(className)) {
       return new TypeToken<List<Note>>(){}.getType();
-    }
-    
-    if ("Poll".equalsIgnoreCase(className)) {
-      return new TypeToken<List<Poll>>(){}.getType();
     }
     
     if ("Post".equalsIgnoreCase(className)) {
@@ -151,6 +159,18 @@ public class JsonUtil {
       return new TypeToken<Image>(){}.getType();
     }
     
+    if ("KindergartenChild".equalsIgnoreCase(className)) {
+      return new TypeToken<KindergartenChild>(){}.getType();
+    }
+    
+    if ("KindergartenPoll".equalsIgnoreCase(className)) {
+      return new TypeToken<KindergartenPoll>(){}.getType();
+    }
+    
+    if ("KindergartenUser".equalsIgnoreCase(className)) {
+      return new TypeToken<KindergartenUser>(){}.getType();
+    }
+    
     if ("Like".equalsIgnoreCase(className)) {
       return new TypeToken<Like>(){}.getType();
     }
@@ -161,10 +181,6 @@ public class JsonUtil {
     
     if ("Note".equalsIgnoreCase(className)) {
       return new TypeToken<Note>(){}.getType();
-    }
-    
-    if ("Poll".equalsIgnoreCase(className)) {
-      return new TypeToken<Poll>(){}.getType();
     }
     
     if ("Post".equalsIgnoreCase(className)) {

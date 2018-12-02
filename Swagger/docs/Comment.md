@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  | 
-**creator** | [**User**](User.md) |  | 
+**creator** | [**KindergartenUser**](KindergartenUser.md) |  | 
 **content** | **String** |  | 
 **creationDate** | **String** |  | 
 

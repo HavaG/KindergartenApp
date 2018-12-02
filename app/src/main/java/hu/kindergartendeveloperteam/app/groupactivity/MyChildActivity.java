@@ -8,8 +8,10 @@ import android.widget.Toast;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -24,6 +26,7 @@ import hu.kindergartendeveloperteam.app.groupactivity.MyChildFragment.NotesRecyc
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
 import io.swagger.client.model.Child;
+import io.swagger.client.model.KindergartenChild;
 import io.swagger.client.model.Note;
 import io.swagger.client.model.Presence;
 
@@ -31,10 +34,10 @@ public class MyChildActivity extends AppCompatActivity {
 
     CompactCalendarView compactCalendar;
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
-    Child child;
-    ArrayList<Note> notes;
+    KindergartenChild child;
+    List<Note> notes;
     DefaultApi db;
-    ArrayList<Presence> presences;
+    List<Presence> presences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,7 @@ public class MyChildActivity extends AppCompatActivity {
 
             child = db.getChild(childId);
             //TODO: getPresences, getNotes wtf
-            presences = child.getPresence();
+            presences = child.getPresences();
             notes = child.getNotes();
 
         } catch (TimeoutException e) {
@@ -113,13 +116,19 @@ public class MyChildActivity extends AppCompatActivity {
 
     private void fillCalendarPresences() {
         //get the presences from database, create events, safe events for compare?
+        try {
 
-        for(int i = 0; i < presences.size(); i++){
-            long time = 0;
-            //TODO: presence to millis
-            int y = presences.get(i).getDate();
-            Event e = new Event(Color.RED, time, "Elivleg ez nem is látszik");
-            compactCalendar.addEvent(e);
+            for(int i = 0; i < presences.size(); i++){
+                long time = 0;
+                //TODO: presence to millis
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+                time = sdf.parse(presences.get(i).getDate()).getTime();
+                Event e = new Event(Color.RED, time, "Elivleg ez nem is látszik");
+                compactCalendar.addEvent(e);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 

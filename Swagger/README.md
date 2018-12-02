@@ -116,10 +116,12 @@ Class | Method | HTTP request | Description
  - [GroupgroupIdcreatePostPath](docs/GroupgroupIdcreatePostPath.md)
  - [GroupgroupIdcreatePostPoll](docs/GroupgroupIdcreatePostPoll.md)
  - [Image](docs/Image.md)
+ - [KindergartenChild](docs/KindergartenChild.md)
+ - [KindergartenPoll](docs/KindergartenPoll.md)
+ - [KindergartenUser](docs/KindergartenUser.md)
  - [Like](docs/Like.md)
  - [Message](docs/Message.md)
  - [Note](docs/Note.md)
- - [Poll](docs/Poll.md)
  - [Post](docs/Post.md)
  - [Post1](docs/Post1.md)
  - [Presence](docs/Presence.md)
@@ -130,8 +132,17 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### OauthSecurity
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: http://kindergarten.westeurope.cloudapp.azure.com:3000/oauth/authorise
+- **Scopes**: 
+  - admin: Admin scope
+  - teacher: Teacher scope
+  - parent: Parent scope
+
 
 ## Recommendation
 

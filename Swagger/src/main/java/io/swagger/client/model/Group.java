@@ -12,10 +12,10 @@
 
 package io.swagger.client.model;
 
-import io.swagger.client.model.Child;
+import io.swagger.client.model.KindergartenChild;
+import io.swagger.client.model.KindergartenUser;
 import io.swagger.client.model.Message;
 import io.swagger.client.model.Post;
-import io.swagger.client.model.User;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -30,9 +30,9 @@ public class Group {
   @SerializedName("posts")
   private List<Post> posts = null;
   @SerializedName("teachers")
-  private List<User> teachers = null;
+  private List<KindergartenUser> teachers = null;
   @SerializedName("children")
-  private List<Child> children = null;
+  private List<KindergartenChild> children = null;
   @SerializedName("messages")
   private List<Message> messages = null;
   @SerializedName("creationDate")
@@ -72,20 +72,20 @@ public class Group {
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<User> getTeachers() {
+  public List<KindergartenUser> getTeachers() {
     return teachers;
   }
-  public void setTeachers(List<User> teachers) {
+  public void setTeachers(List<KindergartenUser> teachers) {
     this.teachers = teachers;
   }
 
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<Child> getChildren() {
+  public List<KindergartenChild> getChildren() {
     return children;
   }
-  public void setChildren(List<Child> children) {
+  public void setChildren(List<KindergartenChild> children) {
     this.children = children;
   }
 

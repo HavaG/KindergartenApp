@@ -12,7 +12,7 @@
 
 package io.swagger.client.model;
 
-import io.swagger.client.model.User;
+import io.swagger.client.model.KindergartenUser;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -22,7 +22,7 @@ public class Comment {
   @SerializedName("id")
   private Integer id = null;
   @SerializedName("creator")
-  private User creator = null;
+  private KindergartenUser creator = null;
   @SerializedName("content")
   private String content = null;
   @SerializedName("creationDate")
@@ -41,10 +41,10 @@ public class Comment {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public User getCreator() {
+  public KindergartenUser getCreator() {
     return creator;
   }
-  public void setCreator(User creator) {
+  public void setCreator(KindergartenUser creator) {
     this.creator = creator;
   }
 

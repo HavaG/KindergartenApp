@@ -12,7 +12,7 @@
 
 package io.swagger.client.model;
 
-import io.swagger.client.model.User;
+import io.swagger.client.model.KindergartenUser;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -22,7 +22,7 @@ public class Like {
   @SerializedName("id")
   private Integer id = null;
   @SerializedName("user")
-  private User user = null;
+  private KindergartenUser user = null;
 
   /**
    **/
@@ -37,10 +37,10 @@ public class Like {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public User getUser() {
+  public KindergartenUser getUser() {
     return user;
   }
-  public void setUser(User user) {
+  public void setUser(KindergartenUser user) {
     this.user = user;
   }
 

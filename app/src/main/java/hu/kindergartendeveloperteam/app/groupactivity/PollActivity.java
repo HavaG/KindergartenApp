@@ -24,7 +24,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
-import io.swagger.client.model.Poll;
+import io.swagger.client.model.GroupgroupIdcreatePostPoll;
+import io.swagger.client.model.KindergartenPoll;
 import io.swagger.client.model.Post;
 
 public class PollActivity extends AppCompatActivity {
@@ -57,10 +58,13 @@ public class PollActivity extends AppCompatActivity {
                 try {
                     //TODO: SetId???
                     Post newPost = new Post();
-                    Poll newPoll = new Poll();
+                    KindergartenPoll newPoll = new KindergartenPoll();
                     newPoll.setQuestion(textIn.getText().toString());
                     newPoll.setOptions(answers);
-                    newPost.setPoll(newPoll);
+                    GroupgroupIdcreatePostPoll pollWorkaround = new GroupgroupIdcreatePostPoll();
+                    pollWorkaround.setAnswers(newPoll.getOptions());
+                    pollWorkaround.setQuestion(newPoll.getQuestion());
+                    newPost.setPoll(pollWorkaround);
                     db.createPost(0, newPost);
                 } catch (TimeoutException e) {
                     e.printStackTrace();

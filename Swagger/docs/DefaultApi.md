@@ -66,7 +66,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -110,7 +110,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -154,7 +154,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -198,7 +198,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -371,7 +371,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -393,7 +393,7 @@ edit a child
 
 DefaultApi apiInstance = new DefaultApi();
 Integer childId = 56; // Integer | The id of the child
-Child child = new Child(); // Child | The modified Child object
+KindergartenChild child = new KindergartenChild(); // KindergartenChild | The modified Child object
 try {
     apiInstance.editChild(childId, child);
 } catch (ApiException e) {
@@ -407,7 +407,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **childId** | **Integer**| The id of the child |
- **child** | [**Child**](Child.md)| The modified Child object |
+ **child** | [**KindergartenChild**](KindergartenChild.md)| The modified Child object |
 
 ### Return type
 
@@ -415,7 +415,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -459,7 +459,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -503,7 +503,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -512,7 +512,7 @@ No authorization required
 
 <a name="getChild"></a>
 # **getChild**
-> Child getChild(childId)
+> KindergartenChild getChild(childId)
 
 Gets a child
 
@@ -526,7 +526,7 @@ Gets a child
 DefaultApi apiInstance = new DefaultApi();
 Integer childId = 56; // Integer | The id of the child
 try {
-    Child result = apiInstance.getChild(childId);
+    KindergartenChild result = apiInstance.getChild(childId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getChild");
@@ -542,11 +542,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Child**](Child.md)
+[**KindergartenChild**](KindergartenChild.md)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -628,7 +628,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -766,7 +766,7 @@ No authorization required
 
 <a name="getUser"></a>
 # **getUser**
-> User getUser(userId)
+> KindergartenUser getUser(userId)
 
 Gets a user
 
@@ -780,7 +780,7 @@ Gets a user by their id
 DefaultApi apiInstance = new DefaultApi();
 Integer userId = 56; // Integer | The id of the parent
 try {
-    User result = apiInstance.getUser(userId);
+    KindergartenUser result = apiInstance.getUser(userId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getUser");
@@ -796,11 +796,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**KindergartenUser**](KindergartenUser.md)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -843,7 +843,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -887,7 +887,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -931,7 +931,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -975,7 +975,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 
@@ -1019,7 +1019,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[OauthSecurity](../README.md#OauthSecurity)
 
 ### HTTP request headers
 

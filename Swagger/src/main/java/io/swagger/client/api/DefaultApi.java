@@ -25,6 +25,8 @@ import com.android.volley.VolleyError;
 
 import io.swagger.client.model.Child;
 import io.swagger.client.model.Group;
+import io.swagger.client.model.KindergartenChild;
+import io.swagger.client.model.KindergartenUser;
 import io.swagger.client.model.Message;
 import io.swagger.client.model.Note;
 import io.swagger.client.model.Post;
@@ -105,7 +107,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -178,7 +180,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -240,7 +242,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -313,7 +315,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -375,7 +377,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -448,7 +450,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -510,7 +512,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -583,7 +585,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -639,7 +641,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -707,7 +709,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -768,7 +770,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -836,7 +838,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -896,7 +898,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -964,7 +966,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -1023,7 +1025,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -1091,7 +1093,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -1117,7 +1119,7 @@ public class DefaultApi {
    * @param child The modified Child object
    * @return void
   */
-  public void editChild (Integer childId, Child child) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void editChild (Integer childId, KindergartenChild child) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = child;
     // verify the required parameter 'childId' is set
     if (childId == null) {
@@ -1153,7 +1155,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -1184,7 +1186,7 @@ public class DefaultApi {
    * edit a child
    * @param childId The id of the child   * @param child The modified Child object
   */
-  public void editChild (Integer childId, Child child, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void editChild (Integer childId, KindergartenChild child, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = child;
 
     // verify the required parameter 'childId' is set
@@ -1226,7 +1228,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -1288,7 +1290,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -1361,7 +1363,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -1423,7 +1425,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -1496,7 +1498,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -1519,9 +1521,9 @@ public class DefaultApi {
   * Gets a child
   * Gets a child
    * @param childId The id of the child
-   * @return Child
+   * @return KindergartenChild
   */
-  public Child getChild (Integer childId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public KindergartenChild getChild (Integer childId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'childId' is set
     if (childId == null) {
@@ -1551,12 +1553,12 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Child) ApiInvoker.deserialize(localVarResponse, "", Child.class);
+         return (KindergartenChild) ApiInvoker.deserialize(localVarResponse, "", KindergartenChild.class);
       } else {
          return null;
       }
@@ -1582,7 +1584,7 @@ public class DefaultApi {
    * Gets a child
    * @param childId The id of the child
   */
-  public void getChild (Integer childId, final Response.Listener<Child> responseListener, final Response.ErrorListener errorListener) {
+  public void getChild (Integer childId, final Response.Listener<KindergartenChild> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'childId' is set
@@ -1619,7 +1621,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -1627,7 +1629,7 @@ public class DefaultApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Child) ApiInvoker.deserialize(localVarResponse,  "", Child.class));
+              responseListener.onResponse((KindergartenChild) ApiInvoker.deserialize(localVarResponse,  "", KindergartenChild.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -1678,7 +1680,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -1746,7 +1748,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -1799,7 +1801,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -1862,7 +1864,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -1921,7 +1923,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -1989,7 +1991,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -2048,7 +2050,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -2116,7 +2118,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -2175,7 +2177,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -2243,7 +2245,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -2270,9 +2272,9 @@ public class DefaultApi {
   * Gets a user
   * Gets a user by their id
    * @param userId The id of the parent
-   * @return User
+   * @return KindergartenUser
   */
-  public User getUser (Integer userId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public KindergartenUser getUser (Integer userId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'userId' is set
     if (userId == null) {
@@ -2302,12 +2304,12 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (User) ApiInvoker.deserialize(localVarResponse, "", User.class);
+         return (KindergartenUser) ApiInvoker.deserialize(localVarResponse, "", KindergartenUser.class);
       } else {
          return null;
       }
@@ -2333,7 +2335,7 @@ public class DefaultApi {
    * Gets a user by their id
    * @param userId The id of the parent
   */
-  public void getUser (Integer userId, final Response.Listener<User> responseListener, final Response.ErrorListener errorListener) {
+  public void getUser (Integer userId, final Response.Listener<KindergartenUser> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'userId' is set
@@ -2370,7 +2372,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -2378,7 +2380,7 @@ public class DefaultApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((User) ApiInvoker.deserialize(localVarResponse,  "", User.class));
+              responseListener.onResponse((KindergartenUser) ApiInvoker.deserialize(localVarResponse,  "", KindergartenUser.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -2429,7 +2431,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -2497,7 +2499,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -2558,7 +2560,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -2626,7 +2628,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -2683,7 +2685,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -2751,7 +2753,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -2812,7 +2814,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -2885,7 +2887,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -2947,7 +2949,7 @@ public class DefaultApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -3020,7 +3022,7 @@ public class DefaultApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "OauthSecurity" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
