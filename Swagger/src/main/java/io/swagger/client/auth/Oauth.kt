@@ -4,6 +4,7 @@ package io.swagger.client.auth
 
 import android.util.Base64
 import android.util.Log
+import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
 import io.swagger.client.Pair
 import kotlinx.coroutines.Dispatchers
@@ -13,6 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Header
 import kotlin.coroutines.resume
@@ -21,7 +23,8 @@ import kotlin.coroutines.suspendCoroutine
 class Oauth : Authentication {
 
     private val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("kindergarten.westeurope.cloudapp.azure.com:3000")
+            .baseUrl("http://kindergarten.westeurope.cloudapp.azure.com:3000/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
 
     private val oauthTokenService: OauthTokenService = retrofit.create(OauthTokenService::class.java)
@@ -45,10 +48,11 @@ class Oauth : Authentication {
     }
 
     override fun applyToParams(queryParams: List<Pair>, headerParams: MutableMap<String, String>) {
-        GlobalScope.launch(Dispatchers.Main) {
-            val token = getToken()
-            headerParams["Authorization"] = "Bearer " + Base64.encodeToString(token.toByteArray(), Base64.DEFAULT)
-        }
+        //GlobalScope.launch(Dispatchers.IO) {
+            //val token = getToken()
+            //headerParams["Authorization"] = "Bearer " + Base64.encodeToString(token.toByteArray(), Base64.DEFAULT)
+            //Log.d("token", "alma " + token)
+        //}
     }
 
     data class OauthResponse(

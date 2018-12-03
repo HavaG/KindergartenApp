@@ -35,8 +35,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
-import io.swagger.client.model.GroupgroupIdcreatePostPath;
 import io.swagger.client.model.KindergartenPost;
+import io.swagger.client.model.Path;
 import io.swagger.client.model.Post;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -90,10 +90,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Post  newPost = new Post();
                     newPost.setContent(textIn.getText().toString());
 
-                    List<GroupgroupIdcreatePostPath> path = new ArrayList<>();
+                    List<Path> path = new ArrayList<>();
 
                     for(int i = 0; i < markers.size(); i++){
-                        GroupgroupIdcreatePostPath e = new GroupgroupIdcreatePostPath();
+                        Path e = new Path();
                         e.setX(markers.get(i).getPosition().latitude);
                         e.setY(markers.get(i).getPosition().longitude);
                         path.add(e);

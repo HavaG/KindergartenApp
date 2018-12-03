@@ -196,7 +196,7 @@ public class ApiInvoker {
   }
 
   public static void initializeInstance(Cache cache) {
-    initializeInstance(cache, null, 0, null, 30);
+    initializeInstance(cache, null, 0, null, 5);
   }
 
   public static void initializeInstance(Cache cache, Network network, int threadPoolSize, ResponseDelivery delivery, int connectionTimeout) {
