@@ -103,10 +103,7 @@ public class MyChildActivity extends AppCompatActivity {
         try {
 
             for(int i = 0; i < presences.size(); i++){
-                long time = 0;
-                //TODO: presence to millis (lehet h így jó)
-
-                time = dateFormatMonth.parse(presences.get(i).getDate()).getTime();
+                long time = dateFormatMonth.parse(presences.get(i).getDate()).getTime();
                 Event e = new Event(Color.RED, time, "Elivleg ez nem is látszik");
                 compactCalendar.addEvent(e);
             }

@@ -87,7 +87,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 try {
                     int groupId = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
-                    Post  newPost = new Post();
+                    Post newPost = new Post();
                     newPost.setContent(textIn.getText().toString());
 
                     List<Path> path = new ArrayList<>();

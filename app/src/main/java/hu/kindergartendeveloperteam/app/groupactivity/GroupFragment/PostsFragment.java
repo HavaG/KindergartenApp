@@ -45,6 +45,7 @@ public class PostsFragment extends Fragment {
         PostRecyclerViewAdapter recycleAdapter = new PostRecyclerViewAdapter(getContext(), posts);
         myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecycleView.setAdapter(recycleAdapter);
+        int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
 
         final int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
 

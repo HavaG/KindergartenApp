@@ -1,20 +1,23 @@
 package hu.kindergartendeveloperteam.app.groupactivity;
 
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.apache.commons.codec.binary.Base64;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -26,12 +29,13 @@ import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
 import io.swagger.client.model.Post;
 
+@SuppressWarnings("deprecation")
 public class PostActivity extends AppCompatActivity {
 
     public static final int IMAGE_GALLERY_REQUEST = 20;
     public ImageView imagePicture;
     TextInputEditText textIn;
-    DefaultApi db;
+    DefaultApi db = new DefaultApi();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +43,9 @@ public class PostActivity extends AppCompatActivity {
         setContentView(R.layout.post_create_activity);
 
         textIn = (TextInputEditText)findViewById(R.id.PostTextInputEditText);
-
         imagePicture = (ImageView) findViewById(R.id.photoPreview);
-
         Button addPhotoBtn = (Button) findViewById(R.id.addPhotoBtn);
+        Button postBtn = (Button) findViewById(R.id.postBtn);
 
         addPhotoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +54,6 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
-        Button postBtn = (Button) findViewById(R.id.postBtn);
 
         postBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,11 +72,19 @@ public class PostActivity extends AppCompatActivity {
         try {
             Post newPost = new Post();
             newPost.setContent(textIn.getText().toString());
-            //TODO:imagePicture.toString?
-            newPost.setImage(imagePicture.toString());
+
+            imagePicture.buildDrawingCache();
+            BitmapDrawable drawable = (BitmapDrawable) imagePicture.getDrawable();
+            Bitmap bitmap = drawable.getBitmap();
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG,100,bos);
+            byte[] bb = bos.toByteArray();
+            String image = Base64.encodeBase64String(bb);
+            newPost.setImage(image);
 
             int group_id = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
             db.createPost(group_id, newPost);
+
         } catch (TimeoutException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

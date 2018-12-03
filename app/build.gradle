@@ -73,6 +73,8 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "org.apache.httpcomponents:httpcore:$httpcore_version"
     implementation "org.apache.httpcomponents:httpmime:$httpmime_version"
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 repositories {
     mavenCentral()
