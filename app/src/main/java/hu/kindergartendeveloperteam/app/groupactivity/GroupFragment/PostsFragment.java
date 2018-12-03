@@ -33,6 +33,7 @@ public class PostsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        assert getArguments() != null;
         int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
 
         try {

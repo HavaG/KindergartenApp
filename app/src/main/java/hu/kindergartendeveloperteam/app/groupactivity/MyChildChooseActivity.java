@@ -34,13 +34,16 @@ public class MyChildChooseActivity extends AppCompatActivity {
 
 
         try {
-            //TODO: a bejelentkezett user gyerekeit lekérni
+            List<KindergartenChild> children = new ArrayList<>();
+
             List<Group> groups = db.getGroups();
-
-
-            //List<KindergartenChild> children =  user.getChildren();
-            //child.add(gyerek1);
-            //child.add(gyerek2);
+            for (int i = 0; i < groups.size(); i++) {
+                for(int j = 0; j < groups.get(i).getChildren().size(); j++) {
+                    if(groups.get(i).getChildren().get(i).getParentId().equals(/*TODO: jelenleg bejelentkezett user*/ new KindergartenUser().getId())){
+                        children.add(groups.get(i).getChildren().get(i));
+                    }
+                }
+            }
 
         } catch (TimeoutException e) {
             e.printStackTrace();

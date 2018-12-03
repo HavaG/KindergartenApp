@@ -70,7 +70,7 @@ public class JsonUtil {
     }
     
     if ("GroupgroupIdcreatePostPath".equalsIgnoreCase(className)) {
-      return new TypeToken<List<GroupgroupIdcreatePostPath>>(){}.getType();
+      return new TypeToken<List<Path>>(){}.getType();
     }
     
     if ("GroupgroupIdcreatePostPoll".equalsIgnoreCase(className)) {
@@ -118,7 +118,7 @@ public class JsonUtil {
     }
     
     if ("PostpostIdeditPath".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PostpostIdeditPath>>(){}.getType();
+      return new TypeToken<List<Path>>(){}.getType();
     }
     
     if ("Presence".equalsIgnoreCase(className)) {
@@ -156,7 +156,7 @@ public class JsonUtil {
     }
     
     if ("GroupgroupIdcreatePostPath".equalsIgnoreCase(className)) {
-      return new TypeToken<GroupgroupIdcreatePostPath>(){}.getType();
+      return new TypeToken<Path>(){}.getType();
     }
     
     if ("GroupgroupIdcreatePostPoll".equalsIgnoreCase(className)) {
@@ -204,7 +204,7 @@ public class JsonUtil {
     }
     
     if ("PostpostIdeditPath".equalsIgnoreCase(className)) {
-      return new TypeToken<PostpostIdeditPath>(){}.getType();
+      return new TypeToken<Path>(){}.getType();
     }
     
     if ("Presence".equalsIgnoreCase(className)) {

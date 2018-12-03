@@ -12,11 +12,11 @@
 
 package io.swagger.client.model;
 
-import io.swagger.client.model.GroupgroupIdcreatePostPoll;
-import io.swagger.client.model.Path;
-import java.util.*;
+
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 @ApiModel(description = "")
 public class Post {
