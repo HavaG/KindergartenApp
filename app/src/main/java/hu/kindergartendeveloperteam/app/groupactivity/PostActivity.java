@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,12 +22,19 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 import androidx.appcompat.app.AppCompatActivity;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Async;
+import hu.kindergartendeveloperteam.app.groupactivity.async.OnResult;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Task;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.GroupgroupIdcreatePostPoll;
+import io.swagger.client.model.Path;
 import io.swagger.client.model.Post;
 
 @SuppressWarnings("deprecation")
@@ -42,7 +50,7 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_create_activity);
 
-        textIn = (TextInputEditText)findViewById(R.id.PostTextInputEditText);
+        textIn = (TextInputEditText) findViewById(R.id.PostTextInputEditText);
         imagePicture = (ImageView) findViewById(R.id.photoPreview);
         Button addPhotoBtn = (Button) findViewById(R.id.addPhotoBtn);
         Button postBtn = (Button) findViewById(R.id.postBtn);
@@ -69,35 +77,52 @@ public class PostActivity extends AppCompatActivity {
     }
 
     public void createPost() {
-        try {
-            Post newPost = new Post();
-            newPost.setContent(textIn.getText().toString());
+        final Post newPost = new Post();
+        newPost.setContent(textIn.getText().toString());
+        newPost.setImage("");
+        newPost.setPath(new ArrayList<Path>());
+        GroupgroupIdcreatePostPoll poll = new GroupgroupIdcreatePostPoll();
+        poll.setQuestion("");
+        poll.setAnswers(new ArrayList<String>());
+        newPost.setPoll(poll);
 
-            imagePicture.buildDrawingCache();
+
+            /*imagePicture.buildDrawingCache();
             BitmapDrawable drawable = (BitmapDrawable) imagePicture.getDrawable();
             Bitmap bitmap = drawable.getBitmap();
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG,100,bos);
             byte[] bb = bos.toByteArray();
             String image = Base64.encodeBase64String(bb);
-            newPost.setImage(image);
+            newPost.setImage(image);*/
 
-            int group_id = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
-            db.createPost(group_id, newPost);
-
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+        final int group_id = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
+        (new Async<Integer>()).execute(new Task<Integer>() {
+            @Override
+            public Integer work() {
+                int id = -1;
+                try {
+                    id = db.createPost(group_id, newPost);
+                } catch (TimeoutException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                }
+                return id;
+            }
+        }, new OnResult<Integer>() {
+            @Override
+            public void onResult(Integer data) {
+                Log.d("postId", "" + data);
+            }
+        });
     }
 
-    public void onImageGalleryClicked(View v)
-    {
+    public void onImageGalleryClicked(View v) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         File pictureDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         String pictureDirectoryPath = pictureDirectory.getPath();

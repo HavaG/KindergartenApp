@@ -21,12 +21,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            //postoló user
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                //user képe
                 <ImageView
                     android:id="@+id/user_image"
                     android:layout_width="wrap_content"
@@ -34,7 +32,6 @@
                     android:layout_weight="1"
                     android:src="@drawable/ic_person"/>
 
-                //user neve
                 <TextView
                     android:id="@+id/user_name"
                     android:layout_width="wrap_content"
@@ -47,23 +44,22 @@
                     android:textSize="24sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            //a kiposztolt kép
             <ImageView
                 android:id="@+id/posted_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/bikes"/>
 
+            <!--
             <fragment
                 android:id="@+id/map"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 tools:context=".MapsActivity"
-                android:layout_margin="8dp"/>
+                android:layout_margin="8dp"/>-->
 
 
-            //a kiposztolt szoveg
             <TextView
                 android:id="@+id/post_text"
                 android:layout_width="match_parent"
@@ -74,7 +70,6 @@
                 android:text="@string/example_text"
                 android:textSize="18sp" />
 
-            //kérdés
             <TextView
                 android:id="@+id/question"
                 android:layout_width="match_parent"
@@ -83,19 +78,16 @@
                 android:text="@string/question"
                 android:textSize="18sp" />
 
-            //válaszok 1,2,3...
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/answersRecycleView"
                 android:layout_width="match_parent"
                 android:layout_height="72dp" />
 
-            //Like
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-            //like btn
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/LikeBtn"
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
@@ -105,7 +97,6 @@
                 android:text="@string/LikeBtnLabel"
                 app:backgroundTint="@color/colorPrimary" />
 
-            //like-ok száma
             <TextView
                 android:id="@+id/like_text"
                 android:layout_width="match_parent"
@@ -118,7 +109,6 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            //comment 1,2,3....
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/commentRecycleView"
                 android:layout_width="match_parent"
@@ -127,7 +117,6 @@
         </LinearLayout>
     </ScrollView>
 
-    //My comment line
 
     <RelativeLayout
         android:layout_width="match_parent"

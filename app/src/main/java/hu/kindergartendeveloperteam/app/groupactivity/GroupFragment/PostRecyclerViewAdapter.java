@@ -29,6 +29,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Async;
+import hu.kindergartendeveloperteam.app.groupactivity.async.OnResult;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Task;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
 import io.swagger.client.model.Comment;
@@ -51,7 +54,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v;
-        v = LayoutInflater.from(mContext).inflate(R.layout.group_post_item,parent,false);
+        v = LayoutInflater.from(parent.getContext()).inflate(R.layout.group_post_item,parent,false);
         return new MyViewHolder(v);
     }
 
@@ -62,6 +65,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
         final KindergartenPost item = holder.item;
 
 
+        /*
         if (item != null && item.getPath() != null) {
             holder.getMapFragmentAndCallback(new OnMapReadyCallback() {
                 @Override
@@ -74,6 +78,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
                 }
             });
         }
+        */
     }
 
     @Override
@@ -87,7 +92,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final @NonNull MyViewHolder holder, final int position) {
 
         holder.tv_name.setText(mData.get(position).getCreator().getName());
 
@@ -102,7 +107,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
 
         holder.tv_context.setText(mData.get(position).getContent());
 
-        holder.mapLayout.setVisibility(View.GONE);
+        //holder.mapLayout.setVisibility(View.GONE);
 
         if(mData.get(position).getPoll() != null) {
             holder.tv_question.setText(mData.get(position).getPoll().getQuestion());
@@ -122,24 +127,33 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
         holder.btn_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
+                (new Async<Integer>()).execute(new Task<Integer>() {
+                    @Override
+                    public Integer work() {
+                        try {
 
-                    db.likePost(mData.get(position).getId());
+                            db.likePost(mData.get(position).getId());
 
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ApiException e) {
-                    e.printStackTrace();
-                }
+                        } catch (TimeoutException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (ApiException e) {
+                            e.printStackTrace();
+                        }
+
+                        return mData.get(position).getLikes().size();
+                    }
+                }, new OnResult<Integer>() {
+                    @Override
+                    public void onResult(Integer data) {
+                        holder.tv_likes.setText(mContext.getString(R.string.like_text, data));
+                    }
+                });
             }
         });
-
-        int likesCount = mData.get(position).getLikes().size();
-        holder.tv_likes.setText(mContext.getString(R.string.like_text, likesCount));
 
         String comment = "";
         if(holder.tietf_comment.getText() != null) {
@@ -149,19 +163,30 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
         holder.btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!finalComment.equals("")) {
-                    try {
-                        db.commentOnPost(mData.get(position).getId(), finalComment);
-                    } catch (TimeoutException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ApiException e) {
-                        e.printStackTrace();
+                (new Async<Void>()).execute(new Task<Void>() {
+                    @Override
+                    public Void work() {
+                        try {
+                            db.commentOnPost(mData.get(position).getId(), holder.tietf_comment.getText().toString());
+                        } catch (TimeoutException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (ApiException e) {
+                            e.printStackTrace();
+                        }
+
+                        return null;
                     }
-                }
+                }, new OnResult<Void>() {
+                    @Override
+                    public void onResult(Void data) {
+
+                    }
+                });
+
             }
         });
 
@@ -192,7 +217,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
         private RecyclerView comment;
 
         public FrameLayout mapLayout;
-        private SupportMapFragment mapFragment;
+        //private SupportMapFragment mapFragment;
 
         private KindergartenPost item;
 
@@ -213,7 +238,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
 
             mapLayout = (FrameLayout) itemView.findViewById(R.id.map);
         }
-
+/*
         public SupportMapFragment getMapFragmentAndCallback(OnMapReadyCallback callback) {
             if (mapFragment == null) {
                 mapFragment = SupportMapFragment.newInstance();
@@ -223,8 +248,8 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
             /*
             FragmentManager fragmentManager;
             fragmentManager.beginTransaction().replace(R.id.map, mapFragment).commit();
-            */
+            *//*
             return mapFragment;
-        }
+        }*/
     }
 }

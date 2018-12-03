@@ -778,7 +778,7 @@ public class DefaultApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Integer) ApiInvoker.deserialize(localVarResponse, "", Integer.class);
+         return ((Double) ApiInvoker.deserialize(localVarResponse, "", Double.class)).intValue();
       } else {
          return null;
       }
@@ -1924,7 +1924,6 @@ public class DefaultApi {
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
-      Log.d("response", localVarResponse);
       if (localVarResponse != null) {
          return (List<Group>) ApiInvoker.deserialize(localVarResponse, "array", Group.class);
       } else {

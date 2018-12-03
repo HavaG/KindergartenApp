@@ -5,18 +5,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Async;
+import hu.kindergartendeveloperteam.app.groupactivity.async.OnResult;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Task;
+import io.swagger.client.api.DefaultApi;
+import io.swagger.client.model.User;
 
 public class MessengerActivity extends AppCompatActivity {
+
+
+    DefaultApi db = new DefaultApi();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messenger_activity);
-
-
-        //TODO: create a chat --> ez még messze van, majd a socket dolog
-
 
         Button newMessageBtn = (Button) findViewById(R.id.newMessageBtn);
 

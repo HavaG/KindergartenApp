@@ -12,6 +12,12 @@
 
 package io.swagger.client.model;
 
+import io.swagger.client.model.Comment;
+import io.swagger.client.model.Image;
+import io.swagger.client.model.KindergartenPoll;
+import io.swagger.client.model.KindergartenUser;
+import io.swagger.client.model.Like;
+import io.swagger.client.model.Path;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;

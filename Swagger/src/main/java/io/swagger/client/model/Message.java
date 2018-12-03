@@ -24,6 +24,10 @@ public class Message {
   private String content = null;
   @SerializedName("creationDate")
   private String creationDate = null;
+  @SerializedName("sender")
+  private Integer sender = null;
+  @SerializedName("wasSentByCurrentUser")
+  private Boolean wasSentByCurrentUser = null;
 
   /**
    **/
@@ -55,6 +59,28 @@ public class Message {
     this.creationDate = creationDate;
   }
 
+  /**
+   * the id of the user who sent the message
+   **/
+  @ApiModelProperty(value = "the id of the user who sent the message")
+  public Integer getSender() {
+    return sender;
+  }
+  public void setSender(Integer sender) {
+    this.sender = sender;
+  }
+
+  /**
+   * was the message sent by the current user
+   **/
+  @ApiModelProperty(value = "was the message sent by the current user")
+  public Boolean getWasSentByCurrentUser() {
+    return wasSentByCurrentUser;
+  }
+  public void setWasSentByCurrentUser(Boolean wasSentByCurrentUser) {
+    this.wasSentByCurrentUser = wasSentByCurrentUser;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -67,7 +93,9 @@ public class Message {
     Message message = (Message) o;
     return (this.id == null ? message.id == null : this.id.equals(message.id)) &&
         (this.content == null ? message.content == null : this.content.equals(message.content)) &&
-        (this.creationDate == null ? message.creationDate == null : this.creationDate.equals(message.creationDate));
+        (this.creationDate == null ? message.creationDate == null : this.creationDate.equals(message.creationDate)) &&
+        (this.sender == null ? message.sender == null : this.sender.equals(message.sender)) &&
+        (this.wasSentByCurrentUser == null ? message.wasSentByCurrentUser == null : this.wasSentByCurrentUser.equals(message.wasSentByCurrentUser));
   }
 
   @Override
@@ -76,6 +104,8 @@ public class Message {
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.content == null ? 0: this.content.hashCode());
     result = 31 * result + (this.creationDate == null ? 0: this.creationDate.hashCode());
+    result = 31 * result + (this.sender == null ? 0: this.sender.hashCode());
+    result = 31 * result + (this.wasSentByCurrentUser == null ? 0: this.wasSentByCurrentUser.hashCode());
     return result;
   }
 
@@ -87,6 +117,8 @@ public class Message {
     sb.append("  id: ").append(id).append("\n");
     sb.append("  content: ").append(content).append("\n");
     sb.append("  creationDate: ").append(creationDate).append("\n");
+    sb.append("  sender: ").append(sender).append("\n");
+    sb.append("  wasSentByCurrentUser: ").append(wasSentByCurrentUser).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

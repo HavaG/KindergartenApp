@@ -27,6 +27,7 @@ public class GroupChooseActivity extends AppCompatActivity {
 
     DefaultApi db = new DefaultApi();
     public static String GROUP_ID = "group_id";
+    public static String ONLY_MESSAGE = "only_message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class GroupChooseActivity extends AppCompatActivity {
 
         final List<Group> groups = new ArrayList<>();
 
-        Async async = new Async<List<Group>>();
+        Async<List<Group>> async = new Async<>();
         async.execute(new Task<List<Group>>() {
             @Override
             public List<Group> work() {
@@ -72,12 +73,11 @@ public class GroupChooseActivity extends AppCompatActivity {
                             Intent intent = new Intent(getBaseContext(), MainActivity.class);
 
                             Log.d("clicked", "" + id_);
-                            intent.putExtra(GROUP_ID, id_);
 
                             String open = getIntent().getStringExtra("open");
                             if (open.equals("group")) {
                                 intent = new Intent(getBaseContext(), GroupActivity.class);
-                                intent.putExtra("only_message", getIntent().getBooleanExtra("only_message", false));
+                                intent.putExtra(ONLY_MESSAGE, getIntent().getBooleanExtra("only_message", false));
                             } else if (open.equals("maps")) {
                                 intent = new Intent(getBaseContext(), MapsActivity.class);
                             } else if (open.equals("poll")) {
@@ -85,6 +85,9 @@ public class GroupChooseActivity extends AppCompatActivity {
                             } else if (open.equals("post")) {
                                 intent = new Intent(getBaseContext(), PostActivity.class);
                             }
+
+                            intent.putExtra(GroupChooseActivity.GROUP_ID, id_);
+
                             startActivity(intent);
                         }
                     });

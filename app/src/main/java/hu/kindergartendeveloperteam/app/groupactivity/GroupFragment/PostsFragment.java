@@ -29,7 +29,7 @@ public class PostsFragment extends Fragment {
 
     private View v;
     private RecyclerView myRecycleView;
-    private List<KindergartenPost> posts;
+    private List<KindergartenPost> posts = new ArrayList<>();
     private DefaultApi db = new DefaultApi();
 
     @Override
@@ -41,11 +41,12 @@ public class PostsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        v = inflater.inflate(R.layout.group_user_fragment, container, false);
+
         myRecycleView = (RecyclerView) v.findViewById(R.id.userRecycleView);
         PostRecyclerViewAdapter recycleAdapter = new PostRecyclerViewAdapter(getContext(), posts);
         myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecycleView.setAdapter(recycleAdapter);
-        int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
 
         final int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
 
@@ -74,6 +75,7 @@ public class PostsFragment extends Fragment {
             public void onResult(List<KindergartenPost> data) {
                 myRecycleView = (RecyclerView) v.findViewById(R.id.userRecycleView);
                 ((PostRecyclerViewAdapter) myRecycleView.getAdapter()).mData = data;
+                ((PostRecyclerViewAdapter) myRecycleView.getAdapter()).notifyDataSetChanged();
             }
         });
 

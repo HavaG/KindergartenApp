@@ -37,6 +37,7 @@
         <activity android:name=".MessengerActivity" />
         <activity android:name=".PostActivity" />
         <activity android:name=".MapsActivity" />
+        <activity android:name=".MessageActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

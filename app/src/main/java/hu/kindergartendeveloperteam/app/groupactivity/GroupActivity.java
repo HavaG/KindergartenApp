@@ -2,6 +2,7 @@ package hu.kindergartendeveloperteam.app.groupactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -31,9 +32,12 @@ public class GroupActivity extends AppCompatActivity {
 
         Boolean onlyMessage = getIntent().getBooleanExtra("only_message", false);
 
-        int  groupId = getIntent().getIntExtra(GROUP_ID, 0);
+        int  groupId = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
         Bundle b = new Bundle();
-        b.putInt(GROUP_ID, groupId);
+        b.putInt(GroupChooseActivity.GROUP_ID, groupId);
+        b.putBoolean(GroupChooseActivity.ONLY_MESSAGE, onlyMessage);
+
+        Log.d("grup ajdi", "" + groupId);
 
         TeacherFragment tf = new TeacherFragment();
         ParentsFragment pf = new ParentsFragment();

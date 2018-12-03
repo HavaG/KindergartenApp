@@ -12,6 +12,8 @@
 
 package io.swagger.client;
 
+import android.util.Log;
+
 import com.android.volley.Cache;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Network;
@@ -195,7 +197,7 @@ public class ApiInvoker {
   }
 
   public static void initializeInstance(Cache cache) {
-    initializeInstance(cache, null, 0, null, 30);
+    initializeInstance(cache, null, 0, null, 3);
   }
 
   public static void initializeInstance(Cache cache, Network network, int threadPoolSize, ResponseDelivery delivery, int connectionTimeout) {
@@ -243,6 +245,7 @@ public class ApiInvoker {
   }
 
   public static Object deserialize(String json, String containerType, Class cls) throws ApiException {
+    Log.d("jayson", json.toString());
     try{
       if("list".equalsIgnoreCase(containerType) || "array".equalsIgnoreCase(containerType)) {
         return JsonUtil.deserializeToList(json, cls);

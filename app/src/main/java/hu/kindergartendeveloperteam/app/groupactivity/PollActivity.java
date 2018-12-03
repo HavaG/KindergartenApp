@@ -22,10 +22,14 @@ import java.util.concurrent.TimeoutException;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Async;
+import hu.kindergartendeveloperteam.app.groupactivity.async.OnResult;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Task;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
 import io.swagger.client.model.GroupgroupIdcreatePostPoll;
 import io.swagger.client.model.KindergartenPoll;
+import io.swagger.client.model.Path;
 import io.swagger.client.model.Post;
 
 public class PollActivity extends AppCompatActivity {
@@ -33,7 +37,7 @@ public class PollActivity extends AppCompatActivity {
     LinearLayout container;
     Button buttonAdd;
     Button buttonOk;
-    DefaultApi db;
+    DefaultApi db = new DefaultApi();
     TextInputEditText question;
     ArrayList<String> answers = new ArrayList<>();
 
@@ -44,48 +48,62 @@ public class PollActivity extends AppCompatActivity {
 
         question = (TextInputEditText) findViewById(R.id.PollTextInputEditText);
 
-        textIn = (AutoCompleteTextView)findViewById(R.id.textin);
+        textIn = (AutoCompleteTextView) findViewById(R.id.textin);
 
-        buttonAdd = (Button)findViewById(R.id.add);
+        buttonAdd = (Button) findViewById(R.id.add);
         container = (LinearLayout) findViewById(R.id.container);
 
         buttonOk = (Button) findViewById(R.id.okBtn);
 
-        buttonOk.setOnClickListener(new View.OnClickListener(){
+        buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                int group_id = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
+                final int group_id = getIntent().getIntExtra(GroupChooseActivity.GROUP_ID, 0);
 
-                try {
-                    Post newPost = new Post();
-                    GroupgroupIdcreatePostPoll pollWorkaround = new GroupgroupIdcreatePostPoll();
-                    pollWorkaround.setAnswers(answers);
-                    pollWorkaround.setQuestion(textIn.getText().toString());
-                    newPost.setPoll(pollWorkaround);
-                    db.createPost(group_id, newPost);
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ApiException e) {
-                    e.printStackTrace();
-                }
+                final Post newPost = new Post();
+                GroupgroupIdcreatePostPoll pollWorkaround = new GroupgroupIdcreatePostPoll();
+                pollWorkaround.setAnswers(answers);
+                pollWorkaround.setQuestion(textIn.getText().toString());
+                newPost.setPoll(pollWorkaround);
+                newPost.setPath(new ArrayList<Path>());
+                newPost.setContent("");
+                newPost.setImage("");
+                (new Async<Void>()).execute(new Task<Void>() {
+                    @Override
+                    public Void work() {
+                        try {
+                            db.createPost(group_id, newPost);
+                        } catch (TimeoutException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (ApiException e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+                }, new OnResult<Void>() {
+                    @Override
+                    public void onResult(Void data) {
+
+                    }
+                });
 
                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
             }
-        } );
+        });
 
 
-        buttonAdd.setOnClickListener(new View.OnClickListener(){
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(textIn != null && !textIn.getText().toString().equals("")) {
+                if (textIn != null && !textIn.getText().toString().equals("")) {
                     LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     final View addView = layoutInflater.inflate(R.layout.poll_option_item, null);
                     AutoCompleteTextView textOut = addView.findViewById(R.id.textout);

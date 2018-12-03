@@ -51,4 +51,6 @@
     <string name="add_marker">Add marker</string>
     <string name="marker_s_name">Marker\'s name</string>
     <string name="title_activity_place_picker">Map</string>
+    <string name="send">send</string>
+    <string name="magic">Press me</string>
 </resources>

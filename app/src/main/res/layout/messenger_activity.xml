@@ -27,7 +27,7 @@
             android:id="@+id/newMessageBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/messageBtn"
+            android:text="@string/magic"
             app:backgroundTint="@color/colorPrimary"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
