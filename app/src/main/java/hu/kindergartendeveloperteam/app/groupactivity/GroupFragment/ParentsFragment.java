@@ -40,8 +40,9 @@ public class ParentsFragment extends Fragment {
         try {
             List<KindergartenChild> allChildren = db.getGroup(groupId).getChildren();
             for(int i = 0; i < allChildren.size(); i++){
-                if(!Parents.contains(allChildren.get(i).getParent())) {
-                    Parents.add(allChildren.get(i).getParent());
+                KindergartenUser parent = db.getUser(allChildren.get(i).getParentId());
+                if(!Parents.contains(parent)) {
+                    Parents.add(parent);
                 }
             }
 

@@ -12,7 +12,6 @@
 
 package io.swagger.client.model;
 
-import io.swagger.client.model.KindergartenUser;
 import io.swagger.client.model.Note;
 import io.swagger.client.model.Presence;
 import java.util.*;
@@ -26,8 +25,8 @@ public class KindergartenChild {
   private Integer id = null;
   @SerializedName("name")
   private String name = null;
-  @SerializedName("parent")
-  private KindergartenUser parent = null;
+  @SerializedName("parentId")
+  private Integer parentId = null;
   @SerializedName("presences")
   private List<Presence> presences = null;
   @SerializedName("notes")
@@ -56,11 +55,11 @@ public class KindergartenChild {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public KindergartenUser getParent() {
-    return parent;
+  public Integer getParentId() {
+    return parentId;
   }
-  public void setParent(KindergartenUser parent) {
-    this.parent = parent;
+  public void setParentId(Integer parentId) {
+    this.parentId = parentId;
   }
 
   /**
@@ -95,7 +94,7 @@ public class KindergartenChild {
     KindergartenChild kindergartenChild = (KindergartenChild) o;
     return (this.id == null ? kindergartenChild.id == null : this.id.equals(kindergartenChild.id)) &&
         (this.name == null ? kindergartenChild.name == null : this.name.equals(kindergartenChild.name)) &&
-        (this.parent == null ? kindergartenChild.parent == null : this.parent.equals(kindergartenChild.parent)) &&
+        (this.parentId == null ? kindergartenChild.parentId == null : this.parentId.equals(kindergartenChild.parentId)) &&
         (this.presences == null ? kindergartenChild.presences == null : this.presences.equals(kindergartenChild.presences)) &&
         (this.notes == null ? kindergartenChild.notes == null : this.notes.equals(kindergartenChild.notes));
   }
@@ -105,7 +104,7 @@ public class KindergartenChild {
     int result = 17;
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
-    result = 31 * result + (this.parent == null ? 0: this.parent.hashCode());
+    result = 31 * result + (this.parentId == null ? 0: this.parentId.hashCode());
     result = 31 * result + (this.presences == null ? 0: this.presences.hashCode());
     result = 31 * result + (this.notes == null ? 0: this.notes.hashCode());
     return result;
@@ -118,7 +117,7 @@ public class KindergartenChild {
     
     sb.append("  id: ").append(id).append("\n");
     sb.append("  name: ").append(name).append("\n");
-    sb.append("  parent: ").append(parent).append("\n");
+    sb.append("  parentId: ").append(parentId).append("\n");
     sb.append("  presences: ").append(presences).append("\n");
     sb.append("  notes: ").append(notes).append("\n");
     sb.append("}\n");
