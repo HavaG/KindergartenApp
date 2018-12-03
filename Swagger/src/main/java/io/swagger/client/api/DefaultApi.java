@@ -12,6 +12,8 @@
 
 package io.swagger.client.api;
 
+import android.util.Log;
+
 import io.swagger.client.ApiInvoker;
 import io.swagger.client.ApiException;
 import io.swagger.client.Pair;
@@ -1922,6 +1924,7 @@ public class DefaultApi {
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      Log.d("response", localVarResponse);
       if (localVarResponse != null) {
          return (List<Group>) ApiInvoker.deserialize(localVarResponse, "array", Group.class);
       } else {

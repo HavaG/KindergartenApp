@@ -69,10 +69,6 @@ public class JsonUtil {
       return new TypeToken<List<Group>>(){}.getType();
     }
     
-    if ("GroupgroupIdcreatePostPath".equalsIgnoreCase(className)) {
-      return new TypeToken<List<GroupgroupIdcreatePostPath>>(){}.getType();
-    }
-    
     if ("GroupgroupIdcreatePostPoll".equalsIgnoreCase(className)) {
       return new TypeToken<List<GroupgroupIdcreatePostPoll>>(){}.getType();
     }
@@ -109,16 +105,16 @@ public class JsonUtil {
       return new TypeToken<List<Note>>(){}.getType();
     }
     
+    if ("Path".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Path>>(){}.getType();
+    }
+    
     if ("Post".equalsIgnoreCase(className)) {
       return new TypeToken<List<Post>>(){}.getType();
     }
     
     if ("Post1".equalsIgnoreCase(className)) {
       return new TypeToken<List<Post1>>(){}.getType();
-    }
-    
-    if ("PostpostIdeditPath".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PostpostIdeditPath>>(){}.getType();
     }
     
     if ("Presence".equalsIgnoreCase(className)) {
@@ -153,10 +149,6 @@ public class JsonUtil {
     
     if ("Group".equalsIgnoreCase(className)) {
       return new TypeToken<Group>(){}.getType();
-    }
-    
-    if ("GroupgroupIdcreatePostPath".equalsIgnoreCase(className)) {
-      return new TypeToken<GroupgroupIdcreatePostPath>(){}.getType();
     }
     
     if ("GroupgroupIdcreatePostPoll".equalsIgnoreCase(className)) {
@@ -195,16 +187,16 @@ public class JsonUtil {
       return new TypeToken<Note>(){}.getType();
     }
     
+    if ("Path".equalsIgnoreCase(className)) {
+      return new TypeToken<Path>(){}.getType();
+    }
+    
     if ("Post".equalsIgnoreCase(className)) {
       return new TypeToken<Post>(){}.getType();
     }
     
     if ("Post1".equalsIgnoreCase(className)) {
       return new TypeToken<Post1>(){}.getType();
-    }
-    
-    if ("PostpostIdeditPath".equalsIgnoreCase(className)) {
-      return new TypeToken<PostpostIdeditPath>(){}.getType();
     }
     
     if ("Presence".equalsIgnoreCase(className)) {

@@ -17,7 +17,7 @@ public class GroupActivity extends AppCompatActivity {
     private ViewPagerAdapter adapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    public static String GROUP_ID = "gruop_id";
+    public static String GROUP_ID = "group_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class GroupActivity extends AppCompatActivity {
 
         Boolean onlyMessage = getIntent().getBooleanExtra("only_message", false);
 
-        int  groupId = getIntent().getIntExtra("groupId", 0);
+        int  groupId = getIntent().getIntExtra(GROUP_ID, 0);
         Bundle b = new Bundle();
         b.putInt(GROUP_ID, groupId);
 

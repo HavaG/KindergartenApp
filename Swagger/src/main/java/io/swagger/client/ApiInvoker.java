@@ -49,13 +49,12 @@ import java.util.concurrent.TimeoutException;
 import io.swagger.client.auth.Authentication;
 import io.swagger.client.auth.ApiKeyAuth;
 import io.swagger.client.auth.HttpBasicAuth;
+import io.swagger.client.auth.Oauth;
 import io.swagger.client.request.GetRequest;
 import io.swagger.client.request.PostRequest;
 import io.swagger.client.request.PutRequest;
 import io.swagger.client.request.DeleteRequest;
 import io.swagger.client.request.PatchRequest;
-
-import io.swagger.client.auth.Oauth;
 
 public class ApiInvoker {
   private static ApiInvoker INSTANCE;
@@ -196,7 +195,7 @@ public class ApiInvoker {
   }
 
   public static void initializeInstance(Cache cache) {
-    initializeInstance(cache, null, 0, null, 5);
+    initializeInstance(cache, null, 0, null, 30);
   }
 
   public static void initializeInstance(Cache cache, Network network, int threadPoolSize, ResponseDelivery delivery, int connectionTimeout) {

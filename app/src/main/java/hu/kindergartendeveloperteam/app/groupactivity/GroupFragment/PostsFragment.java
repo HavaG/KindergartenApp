@@ -16,6 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import hu.kindergartendeveloperteam.app.groupactivity.GroupActivity;
 import hu.kindergartendeveloperteam.app.groupactivity.R;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Async;
+import hu.kindergartendeveloperteam.app.groupactivity.async.OnResult;
+import hu.kindergartendeveloperteam.app.groupactivity.async.Task;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.DefaultApi;
 import io.swagger.client.model.KindergartenChild;
@@ -32,31 +35,47 @@ public class PostsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
-
-        try {
-
-            posts = db.getGroup(groupId).getPosts();
-
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
     }
-        @Override
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-            myRecycleView = (RecyclerView) v.findViewById(R.id.userRecycleView);
-            PostRecyclerViewAdapter recycleAdapter = new PostRecyclerViewAdapter(getContext(),posts);
-            myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            myRecycleView.setAdapter(recycleAdapter);
-            return v;
+        myRecycleView = (RecyclerView) v.findViewById(R.id.userRecycleView);
+        PostRecyclerViewAdapter recycleAdapter = new PostRecyclerViewAdapter(getContext(), posts);
+        myRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        myRecycleView.setAdapter(recycleAdapter);
+
+        final int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
+
+        Async<List<KindergartenPost>> async = new Async<>();
+        async.execute(new Task<List<KindergartenPost>>() {
+            @Override
+            public List<KindergartenPost> work() {
+                try {
+
+                    posts = db.getGroup(groupId).getPosts();
+
+                } catch (TimeoutException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                }
+
+                return posts;
+            }
+        }, new OnResult<List<KindergartenPost>>() {
+            @Override
+            public void onResult(List<KindergartenPost> data) {
+                myRecycleView = (RecyclerView) v.findViewById(R.id.userRecycleView);
+                ((PostRecyclerViewAdapter) myRecycleView.getAdapter()).mData = data;
+            }
+        });
+
+        return v;
     }
 }
