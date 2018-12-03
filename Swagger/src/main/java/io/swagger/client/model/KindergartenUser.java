@@ -13,7 +13,6 @@
 package io.swagger.client.model;
 
 import io.swagger.client.model.KindergartenChild;
-import io.swagger.client.model.Role;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -25,8 +24,8 @@ public class KindergartenUser {
   private Integer id = null;
   @SerializedName("name")
   private String name = null;
-  @SerializedName("role")
-  private Role role = null;
+  @SerializedName("scope")
+  private String scope = null;
   @SerializedName("children")
   private List<KindergartenChild> children = null;
 
@@ -53,11 +52,11 @@ public class KindergartenUser {
   /**
    **/
   @ApiModelProperty(value = "")
-  public Role getRole() {
-    return role;
+  public String getScope() {
+    return scope;
   }
-  public void setRole(Role role) {
-    this.role = role;
+  public void setScope(String scope) {
+    this.scope = scope;
   }
 
   /**
@@ -82,7 +81,7 @@ public class KindergartenUser {
     KindergartenUser kindergartenUser = (KindergartenUser) o;
     return (this.id == null ? kindergartenUser.id == null : this.id.equals(kindergartenUser.id)) &&
         (this.name == null ? kindergartenUser.name == null : this.name.equals(kindergartenUser.name)) &&
-        (this.role == null ? kindergartenUser.role == null : this.role.equals(kindergartenUser.role)) &&
+        (this.scope == null ? kindergartenUser.scope == null : this.scope.equals(kindergartenUser.scope)) &&
         (this.children == null ? kindergartenUser.children == null : this.children.equals(kindergartenUser.children));
   }
 
@@ -91,7 +90,7 @@ public class KindergartenUser {
     int result = 17;
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
-    result = 31 * result + (this.role == null ? 0: this.role.hashCode());
+    result = 31 * result + (this.scope == null ? 0: this.scope.hashCode());
     result = 31 * result + (this.children == null ? 0: this.children.hashCode());
     return result;
   }
@@ -103,7 +102,7 @@ public class KindergartenUser {
     
     sb.append("  id: ").append(id).append("\n");
     sb.append("  name: ").append(name).append("\n");
-    sb.append("  role: ").append(role).append("\n");
+    sb.append("  scope: ").append(scope).append("\n");
     sb.append("  children: ").append(children).append("\n");
     sb.append("}\n");
     return sb.toString();
