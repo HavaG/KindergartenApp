@@ -140,7 +140,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
             btn_send = (Button) itemView.findViewById(R.id.sendBtn);
             btn_like = (Button) itemView.findViewById(R.id.LikeBtn);
             tv_likes = (TextView) itemView.findViewById(R.id.like_text);
-            f_map = (Fragment) itemView.findViewById(R.id.map);
+            //f_map = (Fragment) itemView.findViewById(R.id.map);
 
             /*
             answersRecycleView

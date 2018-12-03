@@ -37,7 +37,7 @@ public class TeacherFragment extends Fragment {
         int groupId = getArguments().getInt(GroupActivity.GROUP_ID);
 
         try {
-            Teachers = db.getGroup(groupId).getTeachers();
+            Teachers = db.getGroup(groupId).getUsers();
         } catch (TimeoutException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

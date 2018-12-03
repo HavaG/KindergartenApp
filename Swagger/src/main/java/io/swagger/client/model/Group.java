@@ -29,8 +29,8 @@ public class Group {
   private String name = null;
   @SerializedName("posts")
   private List<KindergartenPost> posts = null;
-  @SerializedName("teachers")
-  private List<KindergartenUser> teachers = null;
+  @SerializedName("users")
+  private List<KindergartenUser> users = null;
   @SerializedName("children")
   private List<KindergartenChild> children = null;
   @SerializedName("messages")
@@ -72,11 +72,11 @@ public class Group {
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<KindergartenUser> getTeachers() {
-    return teachers;
+  public List<KindergartenUser> getUsers() {
+    return users;
   }
-  public void setTeachers(List<KindergartenUser> teachers) {
-    this.teachers = teachers;
+  public void setUsers(List<KindergartenUser> users) {
+    this.users = users;
   }
 
   /**
@@ -122,7 +122,7 @@ public class Group {
     return (this.id == null ? group.id == null : this.id.equals(group.id)) &&
         (this.name == null ? group.name == null : this.name.equals(group.name)) &&
         (this.posts == null ? group.posts == null : this.posts.equals(group.posts)) &&
-        (this.teachers == null ? group.teachers == null : this.teachers.equals(group.teachers)) &&
+        (this.users == null ? group.users == null : this.users.equals(group.users)) &&
         (this.children == null ? group.children == null : this.children.equals(group.children)) &&
         (this.messages == null ? group.messages == null : this.messages.equals(group.messages)) &&
         (this.creationDate == null ? group.creationDate == null : this.creationDate.equals(group.creationDate));
@@ -134,7 +134,7 @@ public class Group {
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
     result = 31 * result + (this.posts == null ? 0: this.posts.hashCode());
-    result = 31 * result + (this.teachers == null ? 0: this.teachers.hashCode());
+    result = 31 * result + (this.users == null ? 0: this.users.hashCode());
     result = 31 * result + (this.children == null ? 0: this.children.hashCode());
     result = 31 * result + (this.messages == null ? 0: this.messages.hashCode());
     result = 31 * result + (this.creationDate == null ? 0: this.creationDate.hashCode());
@@ -149,7 +149,7 @@ public class Group {
     sb.append("  id: ").append(id).append("\n");
     sb.append("  name: ").append(name).append("\n");
     sb.append("  posts: ").append(posts).append("\n");
-    sb.append("  teachers: ").append(teachers).append("\n");
+    sb.append("  users: ").append(users).append("\n");
     sb.append("  children: ").append(children).append("\n");
     sb.append("  messages: ").append(messages).append("\n");
     sb.append("  creationDate: ").append(creationDate).append("\n");
